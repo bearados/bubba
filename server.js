@@ -10,10 +10,15 @@ var path = require('path');
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 
+app.get('/', (req, res) => {
+  res.render("index.html");
+});
+
 // create a GET route
 app.get('/express_backend', (req, res) => {
   
   msg = "having fun with data";
+  
   res.send({ express: msg });
 });
 
