@@ -1,10 +1,10 @@
 import React from 'react';
- 
+import Test from './components/Test'
 const home = () => {
     return (
        <div>
           <h1>Home</h1>
-           <p>Home page body content</p>
+           <Test/>
        </div>
     );
 }
