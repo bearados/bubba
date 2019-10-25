@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 app.get('/', (req, res) => {
-  res.send("get success");
+  res.sendFile(path.join(__dirname + '/client/build/index.html'));
 });
 
 // create a GET route
