@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.3.1",
     "dotenv": "^7.0.0",
     "express": "^4.17.1"
   }
