@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.get('/', (req, res) => {
-  res.render("index.html");
+  res.send("get success");
 });
 
 // create a GET route
