@@ -7,8 +7,8 @@ class Test extends Component {
     render(){
         return(
         <Tabs>
-            <Tab eventKey="add" title="Addition Test">
-                <h2>Try these 20 addition questions!</h2>
+            <Tab eventKey="add" title="Addition Quiz">
+                <h1>Addition Quiz</h1>
                 <QuizA/>
             </Tab>
             <Tab eventKey="sub" title="Subtraction Test">

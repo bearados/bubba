@@ -1,11 +1,12 @@
 import React from 'react';
-import Test from './Test'
+import Test from './Test';
+import {Jumbotron} from 'react-bootstrap';
 const home = () => {
     return (
        <div>
-          <h1>Home</h1>
           <br/>
          <Test/> 
+
        </div>
     );
 }
