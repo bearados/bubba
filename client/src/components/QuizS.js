@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Button, Table, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
+import { Button, Image, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
+import jw from '../jw.png'
 
 var ans = [0];
 var difs = [];
@@ -126,7 +127,11 @@ class QuizS extends Component {
                </Row>
                 </Form>
                 :
+                <Container>
                 <h3>Your Score is {this.state.score}/20!</h3>
+                <h5>Great Job John Wick!</h5>
+                <Image src={jw}></Image>
+                </Container>
                }
            </Jumbotron>
         );
