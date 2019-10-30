@@ -118,7 +118,7 @@ class QuizA extends Component {
                </Col>   
                </Row>
                <br/>
-               <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} >Submit Answers</Button>
+               <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
                </Row>
                 </Form>
                 :

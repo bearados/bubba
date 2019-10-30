@@ -3,8 +3,7 @@ import React from 'react';
 const Scores = () => {
     return (
        <div>
-          <h1>About US</h1>
-          <p>About US page body content</p>
+          <h1>View Your Past Scores</h1>
        </div>
     );
 }
