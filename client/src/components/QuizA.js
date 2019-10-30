@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Button, Image, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
-import jw from '../jw.png'
+import jw from '../jw.png';
+import jw2 from '../jw2.png';
 var ans = [0];
 var sums = [];
 var a =[];
@@ -70,10 +71,27 @@ class QuizA extends Component {
         });
         
     }
+    getMsg(){
+        if(this.state.showScore){
+            if(this.state.score < 15){
+                return (<Container><h5>You need to work harder on your math, John Wick</h5>
+                <Image src={jw2} roundedCircle></Image>
+                </Container>);
+            }
+            else{
+                return(<Container><h5>Great Job John Wick!</h5>
+                <Image src={jw} roundedCircle></Image></Container>);
+            }
+        }
+        else{
+            return(<Container></Container>);
+        }
+    }
     render(){
         return(
         
            <Jumbotron>
+               <Container>
                {!this.state.showScore?
                <Form>
                 <Row className="justify-content-md-center"> 
@@ -122,13 +140,10 @@ class QuizA extends Component {
                </Row>
                 </Form>
                 :
-                <Container>
-                <h3>Your Score is {this.state.score}/20!</h3>
-                <h5>Great Job John Wick!</h5>
-                <Image src={jw}></Image>
+               
+                <h3>Your Score is {this.state.score}/20!</h3>}
                 </Container>
-                
-               }
+                <Container>{this.getMsg()}</Container>
            </Jumbotron>
         );
     }
