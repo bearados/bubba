@@ -23,11 +23,6 @@ else {
   });
 }
 
-const { Pool } = require('pg');
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-});
 
 
 app.get('/', (req, res) => {
@@ -40,25 +35,14 @@ app.post('/putscores',(req, res) => {
   console.log(req.body);
   var score = req.body.score;
   var queryst = "Insert Into user_scores(ID, score) Values (1, " + score + ")";
-  try {
-    const client = pool.connect();
-    const result = client.query(queryst);
-    console.log("result of query:" + result);
-    res.send(results)
-    client.release();
-  } catch (err) {
-    console.error(err);
-    res.send("Error " + err);
-  }
+  console.log(queryst);
+  res.send("ok");
 });
 
 app.get('/myScores', (req, res)=>{
   console.log("in myScores");
   var queryst = "Select * from user_scores where ID = 1";
-  const client = pool.connect();
-  const result = client.query(queryst);
-  res.send(result);
-
+  res.send("ok");
 })
 
 // console.log that your server is up and running
