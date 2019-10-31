@@ -39,7 +39,7 @@ app.post('/putscores',(req, res) => {
   console.log("in putscore");
   console.log(req.body);
   var score = req.body.score;
-  var queryst = "Insert Into user_scores(ID, score) Values (1, " + score + ")"
+  var queryst = "Insert Into user_scores(ID, score) Values (1, " + score + ")";
   try {
     const client = pool.connect();
     const result = client.query(queryst);
