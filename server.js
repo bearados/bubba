@@ -40,16 +40,12 @@ app.post('/putscores',(req, res) => {
   console.log(req.body);
   var score = req.body.score;
   var queryst = "Insert Into user_scores(ID, score) Values (1, " + score + ")"
-  try {
+  
     const client = pool.connect();
     const result = client.query(queryst);
     console.log("result of query:" + result);
     res.send(results)
     client.release();
-  } catch (err) {
-    console.error(err);
-    res.send("Error " + err);
-  }
 });
 
 app.get('/myScores', (req, res)=>{
