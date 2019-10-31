@@ -26,7 +26,7 @@ class Scores extends Component {
     return (
        <div>
           <h1>View Your Past Scores</h1>
-          <Button onClick={this.callBackendAPI()}></Button>
+          <Button onClick={this.callBackendAPI()} variant="info">Show Scores</Button>
        </div>
     );
     }
