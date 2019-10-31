@@ -1,6 +1,6 @@
 import React from 'react';
  
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Button, Modal } from 'react-bootstrap';
  
 const Navigation = () => {
     return (
@@ -12,6 +12,7 @@ const Navigation = () => {
           <Nav.Link href="/scores">Scores</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
+        <Button variant="info">Sign in</Button>
         </Navbar>
        </div>
     );

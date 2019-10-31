@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Container, Form, Jumbotron, ListGroup } from 'react-bootstrap';
+import { Row, Col, Jumbotron, ListGroup } from 'react-bootstrap';
 
 const About = () => {
     return (
