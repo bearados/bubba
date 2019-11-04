@@ -11,6 +11,7 @@ class Scores extends Component {
     }
 
     callBackendAPI(){
+      var results = [];
       console.log(this.state.score);
      fetch('/myScores',{
           method: 'GET',
@@ -19,8 +20,10 @@ class Scores extends Component {
           },
           body: JSON.stringify(this.state)
           
-      }).then(res => res.text())
-      .then(text => console.log(text));
+      }).then(res => {
+        res.text();
+        return res;
+      })
       };
     render(){  
     return (

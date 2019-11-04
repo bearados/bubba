@@ -36,13 +36,32 @@ app.post('/putscores',(req, res) => {
   var Values = [ID, score];
   var queryst = 'Insert Into user_scores("ID", "score") Values (1$, 2$)';
   console.log(queryst);
+  client.query(queryst, values, (err, res) => {
+    if (err) throw err;
+    client.end();
+  
+  });
   res.send("ok");
 });
 
 app.get('/myScores', (req, res)=>{
   console.log("in myScores");
-  var queryst = "Select * from user_scores where ID = 1";
-  res.send("ok");
+  client.connect();
+  var context = [];
+  context.res = [];
+  
+  var queryst = 'Select * from user_scores where "ID" = 1';
+  client.query(queryst, values, (err, res) => {
+    if (err) throw err;
+    context.count = JSON.stringify(res.rowCount);
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+      context.res.push(JSON.stringify(row));
+    }
+    client.end();
+  
+  });
+  res.send(context);
 })
 
 // console.log that your server is up and running
