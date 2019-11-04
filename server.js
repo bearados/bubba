@@ -8,7 +8,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const port = process.env.PORT || 5000;
 
 var path = require('path');
-app.use(express.static(path.join(__dirname, '/client/build')));
+const { Client } = require('pg');
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -23,18 +27,14 @@ else {
   });
 }
 
-
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/client/build/index.html'));
-});
-
-
 app.post('/putscores',(req, res) => { 
   console.log("in putscore");
   console.log(req.body);
+  client.connect();
+  var ID = 1;
   var score = req.body.score;
-  var queryst = "Insert Into user_scores(ID, score) Values (1, " + score + ")";
+  var Values = [ID, score];
+  var queryst = 'Insert Into user_scores("ID", "score") Values (1$, 2$)';
   console.log(queryst);
   res.send("ok");
 });
