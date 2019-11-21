@@ -11,10 +11,9 @@ class Scores extends Component {
     }
 
     callBackendAPI(){
-      var results = [];
       console.log("in scores backend func");
-     fetch('/myScores',{
-          method: 'GET',
+      fetch('/myScores',{
+          method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
@@ -22,9 +21,10 @@ class Scores extends Component {
           
       }).then(res => {
         res.text();
-        return res;
+        console.log(res);
       })
       };
+
     render(){  
     return (
        <div>

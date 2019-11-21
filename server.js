@@ -44,7 +44,7 @@ app.post('/putscores',(req, res) => {
   res.send("ok");
 });
 
-app.get('/myScores', (req, res)=>{
+app.post('/myScores', (req, res)=>{
   console.log("in myScores");
   client.connect();
   var context = [];
