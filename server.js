@@ -34,7 +34,7 @@ app.post('/putscores',(req, res) => {
   var ID = 1;
   var score = req.body.score;
   var Values = [ID, score];
-  var queryst = 'Insert Into user_scores("ID", "score") Values ($1, $2);';
+  var queryst = 'Insert Into user_scores("id", "score") Values ($1, $2);';
   console.log(queryst);
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
