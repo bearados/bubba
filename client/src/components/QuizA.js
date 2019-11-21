@@ -49,6 +49,7 @@ function calcScore(AnsArry, sumArry){
             sco++;
         }
     }
+    
     return sco;
 }
 class QuizA extends Component {
@@ -70,6 +71,7 @@ class QuizA extends Component {
     }
     getMsg(){
         if(this.state.showScore){
+            <PostScore score={this.state.score}></PostScore>
             if(this.state.score < 15){
                 return (<Container><h5>You need to work harder on your math, John Wick</h5>
                 <Image src={jw2} roundedCircle></Image><PostScore score={this.state.score}></PostScore></Container>);
