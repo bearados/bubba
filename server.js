@@ -59,7 +59,6 @@ app.get('/myScores', (req, res)=>{
       context.res.push(JSON.stringify(row));
     }
     client.end();
-  
   });
   res.send(context);
 })

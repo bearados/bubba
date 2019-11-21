@@ -12,7 +12,7 @@ class Scores extends Component {
 
     callBackendAPI(){
       var results = [];
-      console.log(this.state.score);
+      console.log("in scores backend func");
      fetch('/myScores',{
           method: 'GET',
           headers: {
