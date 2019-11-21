@@ -50,7 +50,7 @@ app.post('/myScores', (req, res)=>{
   var context = [];
   context.res = [];
   
-  var queryst = 'Select * from user_scores where "ID" = 1';
+  var queryst = 'Select * from user_scores where "id" = 1';
   client.query(queryst, (err, res) => {
     if (err) throw err;
     context.count = JSON.stringify(res.rowCount);
