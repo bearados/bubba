@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Button, Image, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
 import jw from '../jw.png';
 import jw2 from '../jw2.png';
+import PostScore from './PostScore'
 var ans = [0];
 var difs = [];
 var a =[];
@@ -84,7 +85,7 @@ class QuizS extends Component {
             }
             else{
                 return(<Container><h5>Great Job John Wick!</h5>
-                <Image src={jw} roundedCircle></Image></Container>);
+                <Image src={jw} roundedCircle></Image><PostScore score={this.state.score} test="subtraction"></PostScore></Container>);
             }
         }
         else{

@@ -7,6 +7,7 @@ CREATE TABLE user_list (
 CREATE TABLE user_scores (
     ID int,
     score int,
+    test varchar(255),
     date_time TIMESTAMP DEFAULT Now(),
     FOREIGN KEY (ID) REFERENCES user_list(ID)
 );

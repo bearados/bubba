@@ -4,7 +4,8 @@ class PostScore extends Component {
     constructor(props) {
         super(props);
         this.state ={
-            score: this.props.score
+            score: this.props.score,
+            test: this.props.test
         };
       }
 
