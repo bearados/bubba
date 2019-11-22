@@ -19,17 +19,15 @@ const myConfig = {
   },
 };
 
-function setData(datalist){
-  var data = datalist;
-  console.log(datalist);
-}
-
 class Scores extends Component {
    constructor(props) {
       super(props);
       this.state ={
           ID: "1",
-          data: null
+          graphdata: {
+            nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
+            links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }],
+          }
       };
     }
 
@@ -39,15 +37,20 @@ class Scores extends Component {
       };
       
       componentDidMount() {
-      var response = fetch('/myScores',{
+      fetch('/myScores',{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(this.state)
           
-        });
-        this.setState({data: response});
+        }).then(response => response.json())
+        .then(data => {
+            this.setState({
+                graphdata: data
+            }, () => console.log(this.state.graphdata))
+
+        })
       };
 
 
@@ -59,7 +62,7 @@ class Scores extends Component {
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={this.state.data}
+            data={this.state.graphdata}
             config={myConfig}
             
           />
