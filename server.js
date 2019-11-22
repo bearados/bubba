@@ -68,7 +68,7 @@ app.post('/myScores', (req, res)=>{
   context.res.nodes =[];
   
   var queryst = 'Select "id" from user_scores where "userid" = 1';
-  context.res = await scoreQuery();
+  context.res = scoreQuery();
   console.log("context.res " + JSON.stringify(context.res));
   res.send(context);
 })
