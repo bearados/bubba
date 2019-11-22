@@ -51,7 +51,7 @@ app.post('/myScores', (req, res)=>{
   context.res = [];
   context.res.nodes =[];
   context.res.links =[];
-  var queryst = 'Select * from user_scores where "userid" = 1';
+  var queryst = 'Select "id" from user_scores where "userid" = 1';
   client.query(queryst, (err, res) => {
     if (err) throw err;
     context.count = res.rowCount;
