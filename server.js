@@ -27,6 +27,7 @@ else {
   });
 }
 
+
 app.post('/putscores',(req, res) => { 
   console.log("in putscore");
   console.log(req.body);
@@ -44,8 +45,8 @@ app.post('/putscores',(req, res) => {
   res.send("ok");
 });
 
-app.post('/myScores', (req, res)=>{
-  console.log("in myScores");
+
+function scoreQuery(){
   client.connect();
   var context = [];
   context.res = [];
@@ -61,7 +62,15 @@ app.post('/myScores', (req, res)=>{
     }
     client.end();
   });
-  console.log("context.res.nodes" + JSON.stringify(context.res.nodes));
+  return(context);
+}
+
+
+
+app.post('/myScores', (req, res)=>{
+  console.log("in myScores");
+  var context = scoreQuery();
+  console.log("context.res.nodes " + JSON.stringify(context.res.nodes));
   res.send(context);
 })
 
