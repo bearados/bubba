@@ -3,10 +3,10 @@ import { Container, Button, Jumbotron} from 'react-bootstrap';
 
 import { Graph } from "react-d3-graph";
 
-/*const data = {
+var data = {
   nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
   links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }],
-};*/
+};
 const myConfig = {
   nodeHighlightBehavior: true,
   node: {
@@ -77,7 +77,11 @@ class Scores extends Component {
 
     callBackendAPI(){
       console.log("in scores backend func");
-      fetch('/myScores',{
+      
+      };
+      
+      componentDidMount() {
+        fetch('/myScores',{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -90,19 +94,16 @@ class Scores extends Component {
         console.log(res);
        
       })
-      };
-      
-      
+      }
     render(){  
     return (
        <div>
          <h1>View Your Past Scores</h1>
          <Jumbotron>
-          {this.callBackendAPI()}
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={this.state.data}
+            data={data}
             config={myConfig}
             
           />
