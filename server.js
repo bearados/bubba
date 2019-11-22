@@ -47,21 +47,8 @@ app.post('/putscores',(req, res) => {
 
 
 function scoreQuery(){
-  client.connect();
-  var context = [];
-  context.res = [];
-  context.res.nodes =[];
   
-  var queryst = 'Select "id" from user_scores where "userid" = 1';
-  client.query(queryst, (err, res) => {
-    if (err) throw err;
-    context.count = res.rowCount;
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-      context.res.nodes.push(row);
-    }
-    client.end();
-  });
+  
   return(context);
 }
 
@@ -69,7 +56,21 @@ function scoreQuery(){
 
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
-  var context = scoreQuery();
+  client.connect();
+  var context = [];
+  context.res = [];
+  context.res.nodes =[];
+  
+  var queryst = 'Select "id" from user_scores where "userid" = 1';
+  context.res.nodes = client.query(queryst, (err, res) => {
+    if (err)
+      throw err;
+    
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+    }
+    client.end();
+  });
   console.log("context.res.nodes " + JSON.stringify(context.res.nodes));
   res.send(context);
 })
