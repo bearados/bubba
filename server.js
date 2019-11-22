@@ -46,10 +46,16 @@ app.post('/putscores',(req, res) => {
 });
 
 
-function scoreQuery(){
-  
-  
-  return(context);
+async function scoreQuery(){
+  let response;
+  var queryst = 'Select "id" from user_scores where "userid" = 1';
+  client.connect();
+  try {
+    response = await client.query(queryst, (err, res));
+  } catch (error) {
+    throw error;
+  }
+  return response.rows;
 }
 
 
@@ -62,16 +68,8 @@ app.post('/myScores', (req, res)=>{
   context.res.nodes =[];
   
   var queryst = 'Select "id" from user_scores where "userid" = 1';
-  context.res.nodes = client.query(queryst, (err, res) => {
-    if (err)
-      throw err;
-    
-    for (let row of res.rows) {
-      console.log(JSON.stringify(row));
-    }
-    client.end();
-  });
-  console.log("context.res.nodes " + JSON.stringify(context.res.nodes));
+  context.res = await scoreQuery();
+  console.log("context.res " + JSON.stringify(context.res));
   res.send(context);
 })
 
