@@ -85,10 +85,10 @@ class Scores extends Component {
           body: JSON.stringify(this.state)
           
       }).then(res => {
-        
+        this.setState({data: res});
         res.text();
         console.log(res);
-        this.setState({data: res});
+       
       })
       };
       
