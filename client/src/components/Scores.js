@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Container, Button, Jumbotron} from 'react-bootstrap';
 import * as d3 from "d3";
 import { Graph } from "react-d3-graph";
-/*const myConfig = {
+const myConfig = {
   nodeHighlightBehavior: true,
   node: {
       color: "lightgreen",
@@ -12,7 +12,7 @@ import { Graph } from "react-d3-graph";
   link: {
       highlightColor: "lightblue",
   },
-};*/
+};
 
 const onClickGraph = function() {
   window.alert(`Clicked the graph background`);
@@ -84,18 +84,8 @@ class Scores extends Component {
       };
       componentDidMount(){
         this.callBackendAPI();
-      }
-      myConfig = {
-        nodeHighlightBehavior: true,
-        node: {
-            color: "lightgreen",
-            size: 120,
-            highlightStrokeColor: "blue",
-        },
-        link: {
-            highlightColor: "lightblue",
-        },
       };
+      
     render(){  
     return (
        <div>
