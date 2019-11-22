@@ -54,12 +54,9 @@ app.post('/myScores', (req, res)=>{
   var queryst = 'Select * from user_scores where "userid" = 1';
   client.query(queryst, (err, res) => {
     if (err) throw err;
-    console.log(JSON.stringify(res));
-
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
       context.res.nodes.push(row);
-      
     }
     client.end();
   });

@@ -68,10 +68,7 @@ class Scores extends Component {
       super(props);
       this.state ={
           ID: "1",
-          data: {
-            nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
-            links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }]
-          }
+          data: null
       };
     }
 
@@ -89,10 +86,10 @@ class Scores extends Component {
           body: JSON.stringify(this.state)
           
       }).then(res => {
-        this.setState({data: res});
-        res.text();
+        this.setState({data: res}).then(res2 => {
+        res2.text();
         console.log(res);
-       
+       })
       })
       }
     render(){  
