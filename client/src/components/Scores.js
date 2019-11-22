@@ -97,14 +97,14 @@ class Scores extends Component {
        <div>
          <h1>View Your Past Scores</h1>
          <Jumbotron>
-          
+          {this.callBackendAPI()}
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
             data={this.state.data}
             config={myConfig}
             
-          />;
+          />
           </div>
           
           </Jumbotron>
