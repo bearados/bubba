@@ -20,7 +20,7 @@ const myConfig = {
 };
 
 function setData(datalist){
-  data = datalist;
+  var data = datalist;
   console.log(datalist);
 }
 
@@ -48,8 +48,6 @@ class Scores extends Component {
           
         }).then(response => response.json())
         .then(data => this.setState({ data: data.res }));
-        response.text();
-        console.log(response);
       };
 
 
