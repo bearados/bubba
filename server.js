@@ -50,7 +50,7 @@ app.post('/myScores', (req, res)=>{
   var context = [];
   context.res = [];
   context.res.nodes =[];
-  context.res.links =[];
+  
   var queryst = 'Select "id" from user_scores where "userid" = 1';
   client.query(queryst, (err, res) => {
     if (err) throw err;
@@ -61,6 +61,7 @@ app.post('/myScores', (req, res)=>{
     }
     client.end();
   });
+  console.log(JSON.stringify(context.res));
   res.send(context);
 })
 
