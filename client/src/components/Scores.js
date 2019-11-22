@@ -39,15 +39,15 @@ class Scores extends Component {
       };
       
       componentDidMount() {
-      fetch('/myScores',{
+      var response = fetch('/myScores',{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(this.state)
           
-        }).then(response => console.log(response.text()))
-        .then(data => this.setState({ data: data.res }));
+        });
+        this.setState({data: response});
       };
 
 
