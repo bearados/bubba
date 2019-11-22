@@ -19,7 +19,8 @@ const myConfig = {
   },
 };
 
-function getLinks(datalist){
+function setData(datalist){
+  data = datalist;
   console.log(datalist);
 }
 
@@ -46,7 +47,9 @@ class Scores extends Component {
           body: JSON.stringify(this.state)
           
       });
-        this.setState({data: response});
+        setData(response);
+        /*this.setState({data: response});*/
+
         response.text();
         console.log(response);
       
@@ -62,7 +65,7 @@ class Scores extends Component {
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={this.state.data}
+            data={data}
             config={myConfig}
             
           />
