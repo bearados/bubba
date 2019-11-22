@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import { Container, Button, Jumbotron} from 'react-bootstrap';
 
 import { Graph } from "react-d3-graph";
-/*const myConfig = {
+
+const data = {
+  nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
+  links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }],
+};
+const myConfig = {
   nodeHighlightBehavior: true,
   node: {
       color: "lightgreen",
@@ -13,7 +18,7 @@ import { Graph } from "react-d3-graph";
       highlightColor: "lightblue",
   },
 };
-
+/*
 const onClickGraph = function() {
   window.alert(`Clicked the graph background`);
 };
@@ -62,8 +67,7 @@ class Scores extends Component {
    constructor(props) {
       super(props);
       this.state ={
-          ID: "1",
-          data: null
+          ID: "1"
       };
     }
 
@@ -77,7 +81,7 @@ class Scores extends Component {
           body: JSON.stringify(this.state)
           
       }).then(res => {
-        this.setState({data: res});
+        
         res.text();
         console.log(res);
       })
@@ -89,6 +93,14 @@ class Scores extends Component {
        <div>
          <Jumbotron>
           <h1>View Your Past Scores</h1>
+          <div>
+          <Graph
+            id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
+            data={data}
+            config={myConfig}
+            
+          />;
+          </div>
           
           </Jumbotron>
        </div>
