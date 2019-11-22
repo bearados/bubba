@@ -67,8 +67,8 @@ app.post('/myScores', (req, res)=>{
   context.res =[];
   context.res.nodes =[];
   context.test ={
-    nodes: [{ id: 1 }, { id: 2 }, { id: 3 }],
-    links: [{ source: 1, target: 2 }, { source: 1, target: 3 }]
+    nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
+    links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
   var queryst = 'Select "id" from user_scores where "userid" = 1';
   
