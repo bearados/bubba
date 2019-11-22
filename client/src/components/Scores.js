@@ -62,7 +62,7 @@ class Scores extends Component {
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={data}
+            data={this.state.data}
             config={myConfig}
             
           />
