@@ -88,6 +88,7 @@ class Scores extends Component {
         
         res.text();
         console.log(res);
+        this.setState({data: res});
       })
       };
       

@@ -49,14 +49,16 @@ app.post('/myScores', (req, res)=>{
   client.connect();
   var context = [];
   context.res = [];
-  
+  context.res.nodes =[];
+  context.res.links =[];
   var queryst = 'Select * from user_scores where "id" = 1';
   client.query(queryst, (err, res) => {
     if (err) throw err;
     context.count = JSON.stringify(res.rowCount);
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
-      context.res.push(JSON.stringify(row));
+      context.res.nodes.push(row);
+      
     }
     client.end();
   });
