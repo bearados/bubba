@@ -37,14 +37,16 @@ class Scores extends Component {
       };
       
       componentDidMount() {
-      fetch('/myScores',{
+
+      var response = fetch('/myScores',{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(this.state)
           
-        }).then(response => this.setState({graphdata: response.test}))
+        });
+        console.log(response.test);
     
       };
 
