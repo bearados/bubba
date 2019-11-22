@@ -82,9 +82,7 @@ class Scores extends Component {
         console.log(res);
       })
       };
-      componentDidMount(){
-        this.callBackendAPI();
-      };
+      
       
     render(){  
     return (
