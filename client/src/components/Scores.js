@@ -3,10 +3,10 @@ import { Container, Button, Jumbotron} from 'react-bootstrap';
 
 import { Graph } from "react-d3-graph";
 
-var data = {
+/*var data = {
   nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
   links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }],
-};
+};*/
 const myConfig = {
   nodeHighlightBehavior: true,
   node: {
@@ -39,21 +39,17 @@ class Scores extends Component {
       };
       
       componentDidMount() {
-        var response = fetch('/myScores',{
+      fetch('/myScores',{
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
           body: JSON.stringify(this.state)
           
-      });
-        setData(response);
-        /*this.setState({data: response});*/
-
+        }).then(response => response.json())
+        .then(data => this.setState({ data: data.res }));
         response.text();
         console.log(response);
-      
-    
       };
 
 
@@ -65,7 +61,7 @@ class Scores extends Component {
           <div>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={data}
+            data={this.state.data}
             config={myConfig}
             
           />
