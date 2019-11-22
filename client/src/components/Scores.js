@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron} from 'react-bootstrap';
-/*import { Graph } from "react-d3-graph";
-const myConfig = {
+
+import { Graph } from "react-d3-graph";
+/*const myConfig = {
   nodeHighlightBehavior: true,
   node: {
       color: "lightgreen",
