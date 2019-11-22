@@ -47,7 +47,7 @@ class Scores extends Component {
         }).then(response => response.json())
         .then(data => {
             this.setState({
-                graphdata: data
+                graphdata: data.test
             }, () => console.log(this.state.graphdata))
 
         })
