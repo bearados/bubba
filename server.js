@@ -46,7 +46,7 @@ app.post('/putscores',(req, res) => {
 });
 
 
-async function scoreQuery(){
+/*async function scoreQuery(){
   let response;
   var queryst = 'Select "id" from user_scores where "userid" = 1';
   client.connect();
@@ -56,7 +56,7 @@ async function scoreQuery(){
     throw error;
   }
   return response.rows;
-}
+}*/
 
 
 
@@ -71,8 +71,8 @@ app.post('/myScores', (req, res)=>{
     links: [{ source: 1, target: 2 }, { source: 1, target: 3 }]
   };
   var queryst = 'Select "id" from user_scores where "userid" = 1';
-  context.res = scoreQuery();
-  console.log("context.res " + JSON.stringify(context.res));
+  
+  console.log("context.test " + JSON.stringify(context.test));
   res.send(context);
 })
 
