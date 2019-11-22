@@ -61,7 +61,7 @@ app.post('/myScores', (req, res)=>{
     }
     client.end();
   });
-  console.log(JSON.stringify(context.res));
+  console.log("context.res.nodes" + JSON.stringify(context.res.nodes));
   res.send(context);
 })
 
