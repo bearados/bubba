@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import { Container, Button} from 'react-bootstrap';
+import { Container, Button, Jumbotron} from 'react-bootstrap';
 import * as d3 from "d3";
 import { Graph } from "react-d3-graph";
-const myConfig = {
+/*const myConfig = {
   nodeHighlightBehavior: true,
   node: {
       color: "lightgreen",
@@ -12,7 +12,7 @@ const myConfig = {
   link: {
       highlightColor: "lightblue",
   },
-};
+};*/
 
 const onClickGraph = function() {
   window.alert(`Clicked the graph background`);
@@ -85,10 +85,21 @@ class Scores extends Component {
       componentDidMount(){
         this.callBackendAPI();
       }
-
+      myConfig = {
+        nodeHighlightBehavior: true,
+        node: {
+            color: "lightgreen",
+            size: 120,
+            highlightStrokeColor: "blue",
+        },
+        link: {
+            highlightColor: "lightblue",
+        },
+      };
     render(){  
     return (
        <div>
+         <Jumbotron>
           <h1>View Your Past Scores</h1>
           <Graph
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
@@ -105,6 +116,7 @@ class Scores extends Component {
             onMouseOutLink={onMouseOutLink}
             onNodePositionChange={onNodePositionChange}
           />;
+          </Jumbotron>
        </div>
     );
     }
