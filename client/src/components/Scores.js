@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron} from 'react-bootstrap';
-import * as d3 from "d3";
-import { Graph } from "react-d3-graph";
+/*import { Graph } from "react-d3-graph";
 const myConfig = {
   nodeHighlightBehavior: true,
   node: {
@@ -56,7 +55,7 @@ const onMouseOutLink = function(source, target) {
 
 const onNodePositionChange = function(nodeId, x, y) {
   window.alert(`Node ${nodeId} is moved to new position. New position is x= ${x} y= ${y}`);
-};
+};*/
 
 class Scores extends Component {
    constructor(props) {
@@ -89,21 +88,7 @@ class Scores extends Component {
        <div>
          <Jumbotron>
           <h1>View Your Past Scores</h1>
-          <Graph
-            id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={this.state.data}
-            config={myConfig}
-            onClickNode={onClickNode}
-            onRightClickNode={onRightClickNode}
-            onClickGraph={onClickGraph}
-            onClickLink={onClickLink}
-            onRightClickLink={onRightClickLink}
-            onMouseOverNode={onMouseOverNode}
-            onMouseOutNode={onMouseOutNode}
-            onMouseOverLink={onMouseOverLink}
-            onMouseOutLink={onMouseOutLink}
-            onNodePositionChange={onNodePositionChange}
-          />;
+          
           </Jumbotron>
        </div>
     );
