@@ -56,20 +56,24 @@ app.post('/myScores', (req, res)=>{
   client.connect();
   var Values = [req.body.ID];
   var context = [];
-  context.res =[];
+  context.rs =[];
+  context.rs.nodes =[];
   context.test = [];
   var queryst = 'Select "id", "size"  from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
-    context.res = res.rows;
+    for (let row of res.rows) {
+      console.log(JSON.stringify(row));
+      context.rs.nodes.push(row);
+    }
   });
 
   context.test = {
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
-  console.log("context.res " + JSON.stringify(context.res));
+  console.log("context.rs " + JSON.stringify(context.rs.nodes));
   console.log("context.test " + JSON.stringify(context.test));
   res.send(context.test);
 })
