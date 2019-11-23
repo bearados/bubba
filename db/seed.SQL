@@ -7,7 +7,7 @@ CREATE TABLE user_list (
 CREATE TABLE user_scores (
     id serial PRIMARY KEY,
     userid int,
-    score int,
+    size int,
     test varchar(255),
     today DATE DEFAULT CURRENT_DATE,
     qtime TIME DEFAULT CURRENT_TIME,

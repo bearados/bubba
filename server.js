@@ -9,10 +9,7 @@ const port = process.env.PORT || 5000;
 
 var path = require('path');
 const { Client } = require('pg');
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -28,14 +25,18 @@ else {
 }
 
 
-app.post('/putscores',(req, res) => { 
+app.post('/putscores',(req, res) => {
+  const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+  }); 
   console.log("in putscore");
   console.log(req.body);
   client.connect();
   var ID = 1;
   var score = req.body.score;
   var Values = [ID, score, req.body.test];
-  var queryst = 'Insert Into user_scores("id", "score", "test") Values ($1, $2, $3);';
+  var queryst = 'Insert Into user_scores("id", "size", "test") Values ($1, $2, $3);';
   console.log(queryst);
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
@@ -62,18 +63,26 @@ app.post('/putscores',(req, res) => {
 
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
+  const client = new Client({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
+    }); 
   client.connect();
   var context = [];
   context.res =[];
-  context.res.nodes =[{ id: '1' }, { id: '2' }, { id: '3' }];
-  context.res.links = [{ source: '1', target: '2' }, { source: '1', target: '3' }];
   context.test = [];
+  var queryst = 'Select "id", "size"  from user_scores where "userid" = 1';
+  client.query(queryst, Values, (err, res) => {
+    if (err) throw err;
+    client.end();
+    context.res = client.res;
+  });
+
   context.test = {
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
-  var queryst = 'Select "id" from user_scores where "userid" = 1';
-  console.log("context " + JSON.stringify(context));
+  console.log("context.res " + JSON.stringify(context.res));
   console.log("context.test " + JSON.stringify(context.test));
   res.send(context.test);
 })
