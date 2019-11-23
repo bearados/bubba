@@ -25,8 +25,8 @@ class Scores extends Component {
       this.state ={
           ID: "1",
           graphdata: {
-            nodes: [{ id: "Harry" }, { id: "Sally" }, { id: "Alice" }],
-            links: [{ source: "Harry", target: "Sally" }, { source: "Harry", target: "Alice" }],
+            nodes: [{ id: "1" }, { id: "2" }],
+            links: [{ source: "1", target: "2" }],
           }
       };
     }
