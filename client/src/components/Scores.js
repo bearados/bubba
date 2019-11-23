@@ -45,7 +45,7 @@ class Scores extends Component {
           },
           body: JSON.stringify(this.state)
           
-        }).then(response=>response.text()).then(data=>this.setState({graphdata: data}));    
+        }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));    
       };
 
 
