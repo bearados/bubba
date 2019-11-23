@@ -47,18 +47,16 @@ app.post('/putscores',(req, res) => {
 });
 
 
-app.post('/myScores', (req, res)=>{
-  console.log("in myScores");
+function getScores(id){
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
     }); 
   client.connect();
-  var Values = [req.body.ID];
   var context = [];
   context.rs =[];
   context.rs.nodes =[];
-  context.test = [];
+  var Values = id;
   var queryst = 'Select "id", "size"  from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
@@ -69,6 +67,17 @@ app.post('/myScores', (req, res)=>{
       console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
     }
   });
+  return (context.rs.nodes);
+}
+
+
+app.post('/myScores', (req, res)=>{
+  console.log("in myScores");
+  var context = [];
+  context.rs =[];
+  context.rs.nodes =[];
+  context.test = [];
+  context.rs.nodes = getScores(req.body.ID);
 
   context.test = {
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
