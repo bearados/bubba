@@ -66,6 +66,7 @@ app.post('/myScores', (req, res)=>{
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
       context.rs.nodes.push(row);
+      console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
     }
   });
 
@@ -73,7 +74,7 @@ app.post('/myScores', (req, res)=>{
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
-  console.log("context.rs " + JSON.stringify(context.rs.nodes));
+  console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
   console.log("context.test " + JSON.stringify(context.test));
   res.send(context.test);
 })
