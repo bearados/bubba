@@ -62,7 +62,7 @@ app.post('/myScores', (req, res)=>{
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
-    context.res = client.res;
+    context.res = res.rows;
   });
 
   context.test = {
