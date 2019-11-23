@@ -47,20 +47,6 @@ app.post('/putscores',(req, res) => {
 });
 
 
-/*async function scoreQuery(){
-  let response;
-  var queryst = 'Select "id" from user_scores where "userid" = 1';
-  client.connect();
-  try {
-    response = await client.query(queryst, (err, res));
-  } catch (error) {
-    throw error;
-  }
-  return response.rows;
-}*/
-
-
-
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
   const client = new Client({
@@ -68,10 +54,11 @@ app.post('/myScores', (req, res)=>{
     ssl: true,
     }); 
   client.connect();
+  var Values = [req.body.ID];
   var context = [];
   context.res =[];
   context.test = [];
-  var queryst = 'Select "id", "size"  from user_scores where "userid" = 1';
+  var queryst = 'Select "id", "size"  from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
