@@ -47,6 +47,7 @@ class Scores extends Component {
           
         });
         console.dir(response);
+        console.log(response.JSON());
     
       };
 
