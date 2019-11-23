@@ -75,7 +75,7 @@ app.post('/myScores', (req, res)=>{
   var queryst = 'Select "id" from user_scores where "userid" = 1';
   console.log("context " + JSON.stringify(context));
   console.log("context.test " + JSON.stringify(context.test));
-  res.send(context);
+  res.send(context.test);
 })
 
 // console.log that your server is up and running
