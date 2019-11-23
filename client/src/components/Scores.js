@@ -46,7 +46,7 @@ class Scores extends Component {
           body: JSON.stringify(this.state)
           
         });
-        console.log(response.test);
+        console.dir(response);
     
       };
 
