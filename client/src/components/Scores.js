@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron} from 'react-bootstrap';
 import { Graph } from "react-d3-graph";
-import {BarChart} from './BarChart';
+
 
 const myConfig = {
   nodeHighlightBehavior: true,
@@ -59,7 +59,6 @@ class Scores extends Component {
             config={myConfig}
             
           />
-          <BarChart></BarChart>
           </div>
           
           </Jumbotron>
