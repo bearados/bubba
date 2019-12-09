@@ -75,7 +75,7 @@ function getScores(id, callback){
     for(j = 0; j< i; j++){
       if(j+1 < i){
         console.log("j day: " + context.rs.nodes[j].today + " j+1 day: " + context.rs.nodes[j+1].today);
-        if(context.rs.nodes[j+1].today == context.rs.nodes[j].today){
+        if(context.rs.nodes[j+1].today === context.rs.nodes[j].today){
           console.log("in if push link if");
           var link = { source: context.rs.nodes[j].id, target: context.rs.nodes[j+1].id };
           context.rs.links.push(link);
