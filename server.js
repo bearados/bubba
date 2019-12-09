@@ -47,7 +47,7 @@ app.post('/putscores',(req, res) => {
 });
 
 
-function getScores(id, callback ){
+function getScores(id, callback, count ){
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -67,7 +67,8 @@ function getScores(id, callback ){
       console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
     }
   });
-  callback(context.rs.nodes);
+  count++;
+  callback(context.rs.nodes, count);
 }
 
 
@@ -83,18 +84,18 @@ app.post('/myScores', (req, res)=>{
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
-  console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
-  console.log("context.test " + JSON.stringify(context.test));
-  function callback(cont){
+  function callback(cont, count){
     
     console.log("context.test " + JSON.stringify(context.test));
+    
+
     if(count == 1){
       console.log("cont " + JSON.stringify(cont));
       res.send(cont);
     }
-    count++;
+    
   }
-  getScores(req.body.ID, callback);
+  getScores(req.body.ID, callback, count);
   
 })
 
