@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Image, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
-import jw from '../jw.png';
-import jw2 from '../jw2.png';
+import { Button, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
 import PostScore from './PostScore'
 var ans = [0];
 var difs = [];

@@ -67,17 +67,15 @@ function getScores(id, callback){
     if (err) throw err;
     client.end();
     for (let row of res.rows) {
-      console.log(JSON.stringify(row));
       context.rs.nodes.push(row);
     }
     i = res.rowCount;
-    console.log("row count: " + i);
-    console.log("last today: " + context.rs.nodes[i-1].today)
+    
     for(j = 0; j< i; j++){
       if(j+1 < i){
-        console.log("j day: " + context.rs.nodes[j].today + " j+1 day: " + context.rs.nodes[j+1].today);
+        
         if(JSON.stringify(context.rs.nodes[j+1].today) == JSON.stringify(context.rs.nodes[j].today)){
-          console.log("in if push link if");
+          
           var link = { source: context.rs.nodes[j].id, target: context.rs.nodes[j+1].id };
           context.rs.links.push(link);
         }

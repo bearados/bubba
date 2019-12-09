@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import { Button, Image, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
-import PostScore from './PostScore.js';
-import jw from '../jw.png';
-import jw2 from '../jw2.png';
+import { Button, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
+import PostScore from './PostScore'
+
 var ans = [0];
 var sums = [];
 var a =[];
@@ -74,7 +73,7 @@ class QuizA extends Component {
             
             if(this.state.score < 15){
                 return (<Container><h5>You need more practice!</h5>
-                <PostScore score={this.state.score}></PostScore></Container>);
+                <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
             else{
                 return(<Container><h5>Great Job!</h5>
