@@ -77,7 +77,7 @@ app.post('/myScores', (req, res)=>{
   context.rs =[];
   context.rs.nodes =[];
   context.test = [];
-  
+  var count = 0;
 
   context.test = {
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
@@ -88,7 +88,10 @@ app.post('/myScores', (req, res)=>{
   function callback(cont){
     console.log("cont " + JSON.stringify(cont));
     console.log("context.test " + JSON.stringify(context.test));
-    res.send(context.test);
+    if(count == 1){
+    res.send(cont);
+    }
+    count++;
   }
   getScores(req.body.ID, callback);
   
