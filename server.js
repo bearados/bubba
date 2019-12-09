@@ -54,43 +54,52 @@ function getScores(id, callback){
     }); 
   client.connect();
   var context = [];
+  var i, j = 0;
   context.rs =[];
-  context.rs.nodes =[];
+  context.rs = {
+    nodes: [],
+    links: []
+  };
   var Values = [id];
-  var queryst = 'Select "id", "size"  from user_scores where "userid" = $1';
+  var queryst = 'Select "id", "size", "today"  from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
     for (let row of res.rows) {
       console.log(JSON.stringify(row));
       context.rs.nodes.push(row);
-      console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
-    } 
-    callback(context.rs.nodes);
+    }
+    i = res.rowCount;
+    console.log("row count: " + i);
+    console.log("last today: " + context.rs.nodes[i-1].today)
+    /*for(j = 0; j< i; j++){
+      if(j+1 < i){
+        if(context.rs.nodes[j+1].today == context.rs.nodes[j].today){
+          var link = [{ source: context.rs.nodes[j].id, target: context.rs.nodes[j+1].id }];
+          context.rs.links.push(link);
+        }
+      }
+    } */
+    callback(context);
   });
 }
 
+
+function getlinks()
 
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
   var context = [];
   context.rs =[];
-  
-  context.test = [];
-  var count = 0;
   context.rs = {
     nodes: [],
     links: []
   };
-  context.test = {
-    nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
-    links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
-  };
+  var count = 0;
   getScores(req.body.ID, callback);
   function callback(cont){
-    console.log("context.test " + JSON.stringify(context.test));
     count++;
-    if(count === 1){
+    if(count === 2){
       context.rs.nodes = cont;
       console.log("cont " + JSON.stringify(context.rs));
       res.send(context.rs);
