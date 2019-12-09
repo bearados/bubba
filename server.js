@@ -75,10 +75,13 @@ app.post('/myScores', (req, res)=>{
   console.log("in myScores");
   var context = [];
   context.rs =[];
-  context.rs.nodes =[];
+  
   context.test = [];
   var count = 0;
-
+  context.rs = {
+    nodes: [],
+    links: []
+  };
   context.test = {
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
