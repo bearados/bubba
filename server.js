@@ -68,8 +68,6 @@ function getScores(id, callback){
     } 
     callback(context.rs.nodes);
   });
-  
- 
 }
 
 
@@ -90,8 +88,9 @@ app.post('/myScores', (req, res)=>{
     console.log("context.test " + JSON.stringify(context.test));
     count++;
     if(count === 1){
-      console.log("cont " + JSON.stringify(cont));
-      res.send(cont);
+      context.rs.nodes = cont;
+      console.log("cont " + JSON.stringify(context.rs));
+      res.send(context.rs);
     }
   }
 })
