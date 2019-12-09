@@ -56,7 +56,7 @@ function getScores(id, callback ){
   var context = [];
   context.rs =[];
   context.rs.nodes =[];
-  var Values = id;
+  var Values = [id];
   var queryst = 'Select "id", "size"  from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;

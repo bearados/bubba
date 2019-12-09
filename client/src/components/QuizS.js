@@ -84,8 +84,8 @@ class QuizS extends Component {
                 </Container>);
             }
             else{
-                return(<Container><h5>Great Job John Wick!</h5>
-                <Image src={jw} roundedCircle></Image><PostScore score={this.state.score} test="subtraction"></PostScore></Container>);
+                return(<Container><h5>Great Job!</h5>
+                <PostScore score={this.state.score} test="subtraction"></PostScore></Container>);
             }
         }
         else{
