@@ -65,10 +65,11 @@ function getScores(id, callback){
       console.log(JSON.stringify(row));
       context.rs.nodes.push(row);
       console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
-    }
+    } 
+    callback(context.rs.nodes);
   });
   
-  callback(context.rs.nodes);
+ 
 }
 
 
