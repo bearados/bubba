@@ -73,8 +73,8 @@ class QuizA extends Component {
         if(this.state.showScore){
             
             if(this.state.score < 15){
-                return (<Container><h5>You need to work harder on your math, John Wick</h5>
-                <Image src={jw2} roundedCircle></Image><PostScore score={this.state.score}></PostScore></Container>);
+                return (<Container><h5>You need more practice!</h5>
+                <PostScore score={this.state.score}></PostScore></Container>);
             }
             else{
                 return(<Container><h5>Great Job!</h5>

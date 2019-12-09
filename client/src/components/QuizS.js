@@ -79,8 +79,7 @@ class QuizS extends Component {
     getMsg(){
         if(this.state.showScore){
             if(this.state.score < 15){
-                return (<Container><h5>You need to work harder on your math, John Wick</h5>
-                <Image src={jw2} roundedCircle></Image>
+                return (<Container><h5>You need more practice!</h5>
                 </Container>);
             }
             else{
