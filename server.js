@@ -35,7 +35,9 @@ app.post('/putscores',(req, res) => {
   client.connect();
   var ID = 1;
   var score = req.body.score;
-  var Values = [ID, score, req.body.test];
+  var tst = req.body.test;
+  var Values = [ID, score, tst];
+  console.log("value array: " + JSON.stringify(Values));
   var queryst = 'Insert Into user_scores("userid", "size", "test") Values ($1, $2, $3);';
   console.log(queryst);
   client.query(queryst, Values, (err, res) => {
