@@ -86,10 +86,11 @@ app.post('/myScores', (req, res)=>{
   console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
   console.log("context.test " + JSON.stringify(context.test));
   function callback(cont){
-    console.log("cont " + JSON.stringify(cont));
+    
     console.log("context.test " + JSON.stringify(context.test));
     if(count == 1){
-    res.send(cont);
+      console.log("cont " + JSON.stringify(cont));
+      res.send(cont);
     }
     count++;
   }
