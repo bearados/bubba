@@ -80,12 +80,12 @@ function getScores(id, callback){
         }
       }
     } */
-    callback(context);
+    callback(context.rs.nodes);
   });
 }
 
 
-function getlinks()
+
 
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
@@ -99,7 +99,7 @@ app.post('/myScores', (req, res)=>{
   getScores(req.body.ID, callback);
   function callback(cont){
     count++;
-    if(count === 2){
+    if(count === 1){
       context.rs.nodes = cont;
       console.log("cont " + JSON.stringify(context.rs));
       res.send(context.rs);
