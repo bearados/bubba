@@ -46,6 +46,10 @@ class Scores extends Component {
 
 
     render(){  
+      const onMouseOverNode = function(size) {
+        window.alert(`Mouse over node ${size}`);
+    };
+   
     return (
        <div>
          <h1>View Your Past Scores</h1>
@@ -55,7 +59,7 @@ class Scores extends Component {
             id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
             data={this.state.graphdata}
             config={myConfig}
-            
+            onMouseOverNode={onMouseOverNode}
           />
           
           </div>
