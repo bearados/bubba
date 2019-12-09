@@ -57,7 +57,7 @@ class Scores extends Component {
             config={myConfig}
             
           />
-          <BarChart/>
+          
           </div>
           
           </Jumbotron>
