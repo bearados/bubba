@@ -47,7 +47,7 @@ app.post('/putscores',(req, res) => {
 });
 
 
-function getScores(id, callback, count ){
+function getScores(id, callback){
   const client = new Client({
     connectionString: process.env.DATABASE_URL,
     ssl: true,
@@ -67,7 +67,7 @@ function getScores(id, callback, count ){
       console.log("context.rs.nodes " + JSON.stringify(context.rs.nodes));
     }
   });
-  count++;
+  
   callback(context.rs.nodes, count);
 }
 
@@ -84,19 +84,15 @@ app.post('/myScores', (req, res)=>{
     nodes: [{ id: '1' }, { id: '2' }, { id: '3' }],
     links: [{ source: '1', target: '2' }, { source: '1', target: '3' }]
   };
-  function callback(cont, count){
-    
+  getScores(req.body.ID, callback);
+  function callback(cont){
     console.log("context.test " + JSON.stringify(context.test));
-    
-
+    count++;
     if(count === 1){
       console.log("cont " + JSON.stringify(cont));
       res.send(cont);
     }
-    
   }
-  getScores(req.body.ID, callback, count);
-  
 })
 
 // console.log that your server is up and running
