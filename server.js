@@ -68,7 +68,7 @@ function getScores(id, callback){
     }
   });
   
-  callback(context.rs.nodes, count);
+  callback(context.rs.nodes);
 }
 
 
