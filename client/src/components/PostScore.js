@@ -10,7 +10,7 @@ class PostScore extends Component {
       }
 
       callBackendAPI(){
-        console.log(this.state.score);
+        console.log(this.state.test);
        fetch('/putscores',{
             method: 'POST',
             headers: {
