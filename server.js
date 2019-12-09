@@ -72,15 +72,15 @@ function getScores(id, callback){
     i = res.rowCount;
     console.log("row count: " + i);
     console.log("last today: " + context.rs.nodes[i-1].today)
-    /*for(j = 0; j< i; j++){
+    for(j = 0; j< i; j++){
       if(j+1 < i){
         if(context.rs.nodes[j+1].today == context.rs.nodes[j].today){
           var link = [{ source: context.rs.nodes[j].id, target: context.rs.nodes[j+1].id }];
           context.rs.links.push(link);
         }
       }
-    } */
-    callback(context.rs.nodes);
+    } 
+    callback(context.rs);
   });
 }
 
@@ -100,7 +100,7 @@ app.post('/myScores', (req, res)=>{
   function callback(cont){
     count++;
     if(count === 1){
-      context.rs.nodes = cont;
+      context.rs = cont;
       console.log("cont " + JSON.stringify(context.rs));
       res.send(context.rs);
     }
