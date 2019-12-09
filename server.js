@@ -89,7 +89,7 @@ app.post('/myScores', (req, res)=>{
     console.log("context.test " + JSON.stringify(context.test));
     
 
-    if(count == 1){
+    if(count === 1){
       console.log("cont " + JSON.stringify(cont));
       res.send(cont);
     }
