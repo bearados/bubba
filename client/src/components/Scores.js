@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron, Table} from 'react-bootstrap';
+import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
 var scoray = [];
 class Scores extends Component {
