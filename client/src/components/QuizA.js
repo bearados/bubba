@@ -69,11 +69,11 @@ class QuizA extends Component {
         if(this.state.showScore){
             
             if(this.state.score < 10){
-                return (<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row><h5>You need more practice!</h5></Row>
+                return (<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row className="justify-content-md-center"><h5>You need more practice!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
             else{
-                return(<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row><h5>Great Job!</h5></Row>
+                return(<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row className="justify-content-md-center"><h5>Great Job!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
         }
@@ -87,9 +87,9 @@ class QuizA extends Component {
             
            <Jumbotron>
                {this.state.probList.map(co=>(<Form>
-                <Form.Group as={Row} className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                </Form.Group>
-                   <br/>   
+                <Row className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                <br/>
+                </Row>
                 </Form>
                 ))} <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
                </Row> 
