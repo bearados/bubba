@@ -62,7 +62,7 @@ function getScores(id, callback){
     links: []
   };
   var Values = [id];
-  var queryst = 'Select "id", "size", "today"  from user_scores where "userid" = $1';
+  var queryst = 'Select * from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();

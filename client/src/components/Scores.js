@@ -1,20 +1,7 @@
 import React, {Component} from 'react';
-import { Container, Button, Jumbotron} from 'react-bootstrap';
-import { Graph } from "react-d3-graph";
+import { Container, Button, Jumbotron, Table} from 'react-bootstrap';
 
-
-const myConfig = {
-  nodeHighlightBehavior: true,
-  node: {
-      color: "lightgreen",
-      size: 120,
-      highlightStrokeColor: "blue",
-  },
-  link: {
-      highlightColor: "lightblue",
-  },
-};
-
+var scoray = [];
 class Scores extends Component {
    constructor(props) {
       super(props);
@@ -24,6 +11,7 @@ class Scores extends Component {
             nodes: [{ id: "1" }, { id: "2" }],
             links: [{ source: "1", target: "2" }],
           }
+          
       };
     }
 
@@ -44,7 +32,7 @@ class Scores extends Component {
         }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));    
       };
 
-
+      
     render(){  
       
    
@@ -53,12 +41,26 @@ class Scores extends Component {
          <h1>View Your Past Scores</h1>
          <Jumbotron>
           <div>
-          <Graph
-            id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
-            data={this.state.graphdata}
-            config={myConfig}
-            
-          />
+          <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Quiz</th>
+              <th>Date/Time</th>
+              <th>Score</th>
+            </tr>
+            <tbody>
+              {this.state.graphdata.map(el=> (
+                <tr>
+                  <td>{el.id}</td>
+                  <td>{el.test}</td>
+                  <td>{el.today}/{el.qtime}</td>
+                  <td>{el.size}</td>
+                </tr>
+              ))}
+            </tbody>
+          </thead>
+          </Table>
           </div>
           
           </Jumbotron>
