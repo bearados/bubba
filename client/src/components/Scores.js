@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron, Table} from 'react-bootstrap';
-import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
+
 
 var scoray = [];
 class Scores extends Component {
@@ -50,6 +50,7 @@ class Scores extends Component {
               <th>Date/Time</th>
               <th>Score</th>
             </tr>
+          </thead>
             <tbody>
               {this.state.graphdata.nodes.map(el=> (
                 <tr>
@@ -60,7 +61,6 @@ class Scores extends Component {
                 </tr>
               ))}
             </tbody>
-          </thead>
           </Table>
           </div>
           
