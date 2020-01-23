@@ -17,7 +17,7 @@ function problemGener(){
     for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
-    a.push(<Col>{j}. {an} + {bn} = </Col>);
+    a.push(<Col>{j+1}. {an} + {bn} = </Col>);
     var sum = an + bn;
     sums.push(sum);
     }
@@ -56,9 +56,9 @@ class QuizA extends Component {
         showScore: false};
       }
       
-      handleChange(event) {
+    handleChange(event) {
         this.setState({Answer: addAns(event.target.value, this.state.Answer, event.target.name)});
-      } 
+    } 
     getScore(event){
         this.setState({showScore: true,
             score: calcScore(this.state.Answer, this.state.probList)
@@ -86,11 +86,14 @@ class QuizA extends Component {
         return(
             
            <Jumbotron>
-               {this.state.probList.map(co=>(<Form>
+               {this.state.probList.map(co=>(
+               <Form>
                 <Row className="justify-content-md-center">{co}<Col><Form.Control size="sm" type="number" name = {i++} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>                
                 <br/>
                 </Form>
-                ))} <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
+                ))}
+                <br/> 
+                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
                </Row> 
                 <Container>{this.getMsg()}</Container>
            </Jumbotron>
