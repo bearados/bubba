@@ -51,7 +51,7 @@ class Scores extends Component {
           </thead>
             <tbody>
               
-              {this.state.graphdata.map(el=> (
+              {this.state.graphdata.rs.map(el=> (
                 <tr>
                   <td>{el.id}</td>
                   <td>{el.test}</td>
