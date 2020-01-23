@@ -56,7 +56,6 @@ function getScores(id, callback){
   client.connect();
   var context = [];
   context.rs =[];
-  
   var Values = [id];
   var queryst = 'Select * from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
@@ -65,7 +64,8 @@ function getScores(id, callback){
     for (let row of res.rows) {
       context.rs.push(row);
     }
-    context.i = res.rowCount;
+    var i = res.rowCount;
+    console.log(context.rs);
     callback(context.rs);
   });
 }
