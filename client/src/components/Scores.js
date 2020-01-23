@@ -40,7 +40,7 @@ class Scores extends Component {
     return (
        <div>
          <h1>View Your Past Scores</h1>
-         <Jumbotron>
+         
           <div>
           <Table striped bordered hover>
           <thead>
@@ -54,7 +54,7 @@ class Scores extends Component {
           </thead>
             <tbody>
               {this.state.graphdata.nodes.map(el=> (
-                <tr>
+                <tr {...i+1}>
                   <td>{i}</td>
                   <td>{el.test}</td>
                   <td>{el.today}</td>
@@ -65,8 +65,6 @@ class Scores extends Component {
             </tbody>
           </Table>
           </div>
-          
-          </Jumbotron>
        </div>
     );
     }
