@@ -21,9 +21,7 @@ function problemGener(){
     var sum = an + bn;
     sums.push(sum);
     }
-    probs.push(a);
-    probs.push(sums);
-    return probs;
+    return a;
 }
 function arrayFill(){
     var jay = 0;
@@ -38,11 +36,11 @@ function addAns(curAns, AnsArray, pos){
     return AnsArray;
 }
 
-function calcScore(AnsArry, sumArry){
+function calcScore(AnsArry){
     var kay = 0;
     var sco = 0;
     for(kay = 0; kay < 20; kay++){
-        if(AnsArry[kay] == sumArry[1][kay]){
+        if(AnsArry[kay] == sums[kay]){
             sco++;
         }
     }
