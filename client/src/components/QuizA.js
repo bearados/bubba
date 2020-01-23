@@ -44,9 +44,9 @@ function calcScore(AnsArry){
             sco++;
         }
     }
-    
     return sco;
 }
+
 class QuizA extends Component {
     constructor(props) {
         super(props);
@@ -88,7 +88,7 @@ class QuizA extends Component {
            <Jumbotron>
                {this.state.probList.map(co=>(
                <Form>
-                <Row className="justify-content-md-center">{co}<Col><Form.Control size="sm" type="number" name = {i++} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>                
+                <Row className="justify-content-md-center">{co}<Col sm={true}><Form.Control size="sm" type="number" name = {i++} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>                
                 <br/>
                 </Form>
                 ))}
