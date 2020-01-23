@@ -64,6 +64,7 @@ class QuizA extends Component {
             score: calcScore(this.state.Answer, this.state.probList)
         });
     }
+    
     getMsg(){
         if(this.state.showScore){
             
@@ -86,15 +87,17 @@ class QuizA extends Component {
         
            <Jumbotron>
                <Container>
+                   {this.state.probList.map(co=>(
+                       
+                       <Col>{co}</Col>                     
+                   ))}
                {!this.state.showScore?
                <Form>
                    
                 <Row className="justify-content-md-center"> 
-                    <Col>
-               1. {this.state.probList[0]}</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>1. {this.state.probList[0]}</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                
-               <Col>
-               2. {this.state.probList[1]}</Col><Col><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>2. {this.state.probList[1]}</Col><Col><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>
                <Col>
                3. {this.state.probList[2]}</Col><Col><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" />
