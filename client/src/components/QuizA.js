@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import { Button, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
 
 import PostScore from './PostScore'
-
+var i = 0;
 var ans = [0];
 var sums = [];
 var a =[];
-var b=[];
+
 var probs = [];
 function random(){
      return Math.floor(Math.random() * 100);
@@ -81,15 +81,17 @@ class QuizA extends Component {
             return(<Container></Container>);
         }
     }
-    
+    i =0;
     render(){
         return(
-        
+            
            <Jumbotron>
                <Container>
                    {this.state.probList.map(co=>(
                        
-                       <Col>{co}</Col>                     
+                   <Form>    
+                   <Col>{i++}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                   </Form>                     
                    ))}
                {!this.state.showScore?
                <Form>
