@@ -55,47 +55,26 @@ function getScores(id, callback){
     }); 
   client.connect();
   var context = [];
-  var i, j = 0;
   context.rs =[];
-  context.rs = {
-    nodes: [],
-    links: []
-  };
+  
   var Values = [id];
   var queryst = 'Select * from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
     for (let row of res.rows) {
-      context.rs.nodes.push(row);
+      context.rs.push(row);
     }
-    i = res.rowCount;
-    
-    for(j = 0; j< i; j++){
-      if(j+1 < i){
-        
-        if(JSON.stringify(context.rs.nodes[j+1].today) == JSON.stringify(context.rs.nodes[j].today)){
-          
-          var link = { source: context.rs.nodes[j].id, target: context.rs.nodes[j+1].id };
-          context.rs.links.push(link);
-        }
-      }
-    } 
+    context.i = res.rowCount;
     callback(context.rs);
   });
 }
-
-
 
 
 app.post('/myScores', (req, res)=>{
   console.log("in myScores");
   var context = [];
   context.rs =[];
-  context.rs = {
-    nodes: [],
-    links: []
-  };
   var count = 0;
   getScores(req.body.ID, callback);
   function callback(cont){
