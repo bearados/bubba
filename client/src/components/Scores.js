@@ -8,8 +8,7 @@ class Scores extends Component {
       super(props);
       this.state ={
           ID: "1",
-          graphdata: {"id": 1, "test":"addition", "today": 7/5/2019, "qtime": "3:33", "score": 15}
-          
+          graphdata: []   
       };
     }
 
@@ -27,7 +26,7 @@ class Scores extends Component {
           },
           body: JSON.stringify(this.state)
           
-        }).then(response=>response.json()).then(data=>this.setState({graphdata: data.rs}));
+        }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));
         console.dir(this.state.graphdata);    
       };
     render(){  
