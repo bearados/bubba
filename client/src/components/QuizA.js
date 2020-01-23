@@ -90,7 +90,8 @@ class QuizA extends Component {
                    {this.state.probList.map(co=>(
                        
                    <Form>    
-                   <Row><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>
+                   <Row className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>
+                   <br/>
                    </Form>                     
                    ))}
                {!this.state.showScore?
