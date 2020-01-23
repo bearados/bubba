@@ -17,7 +17,7 @@ function problemGener(){
     for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
-    a.push(<Col>{j}. {an} + {bn} = <Form.Control size="sm" type="number" name = {j} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>);
+    a.push(<Col>{j}. {an} + {bn} = </Col>);
     var sum = an + bn;
     sums.push(sum);
     }
@@ -87,7 +87,7 @@ class QuizA extends Component {
             
            <Jumbotron>
                {this.state.probList.map(co=>(<Form>
-                <Row className="justify-content-md-center">{co}</Row>                
+                <Row className="justify-content-md-center">{co}<Col><Form.Control size="sm" type="number" name = {i++} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>                
                 <br/>
                 </Form>
                 ))} <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
