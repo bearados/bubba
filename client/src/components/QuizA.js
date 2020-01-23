@@ -14,7 +14,7 @@ function random(){
 
 function problemGener(){
     var j = 0;
-    for(j= 0; j< 20; j++){
+    for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
     a.push(<container>{an} + {bn} = </container>);
@@ -25,7 +25,7 @@ function problemGener(){
 }
 function arrayFill(){
     var jay = 0;
-    for(jay = 0; jay < 20; jay++){
+    for(jay = 0; jay < 15; jay++){
         ans.push(0);
     }
     return ans;
@@ -39,7 +39,7 @@ function addAns(curAns, AnsArray, pos){
 function calcScore(AnsArry){
     var kay = 0;
     var sco = 0;
-    for(kay = 0; kay < 20; kay++){
+    for(kay = 0; kay < 15; kay++){
         if(AnsArry[kay] == sums[kay]){
             sco++;
         }
@@ -68,12 +68,12 @@ class QuizA extends Component {
     getMsg(){
         if(this.state.showScore){
             
-            if(this.state.score < 15){
-                return (<Container><Row><h3>Your Score is {this.state.score}/20!</h3></Row><Row><h5>You need more practice!</h5></Row>
+            if(this.state.score < 10){
+                return (<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row><h5>You need more practice!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
             else{
-                return(<Container><Row><h3>Your Score is {this.state.score}/20!</h3></Row><Row><h5>Great Job!</h5></Row>
+                return(<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row><h5>Great Job!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
         }
