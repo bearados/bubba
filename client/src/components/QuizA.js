@@ -81,7 +81,7 @@ class QuizA extends Component {
             return(<Container></Container>);
         }
     }
-    i =0;
+    
     render(){
         return(
             

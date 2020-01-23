@@ -47,16 +47,18 @@ class Scores extends Component {
             <tr>
               <th>#</th>
               <th>Quiz</th>
-              <th>Date/Time</th>
+              <th>Date</th>
+              <th>Time</th>
               <th>Score</th>
             </tr>
           </thead>
             <tbody>
               {this.state.graphdata.nodes.map(el=> (
                 <tr>
-                  <td>{++i}</td>
+                  <td>{i++}</td>
                   <td>{el.test}</td>
-                  <td>{el.today}/{el.qtime}</td>
+                  <td>{el.today}</td>
+                  <td>{el.qtime}</td>
                   <td>{el.size}</td>
                 </tr>
               ))}
