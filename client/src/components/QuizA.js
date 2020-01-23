@@ -42,7 +42,7 @@ function calcScore(AnsArry, sumArry){
     var kay = 0;
     var sco = 0;
     for(kay = 0; kay < 20; kay++){
-        if(AnsArry[kay] == sumArry[2][kay]){
+        if(AnsArry[kay] == sumArry[1][kay]){
             sco++;
         }
     }
@@ -90,7 +90,7 @@ class QuizA extends Component {
                <Container>
                {!this.state.showScore?
                <Form>
-                   {this.state.probList.map}
+                   
                 <Row className="justify-content-md-center"> 
                     <Col>
                1. {this.state.probList[0][0]}</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
