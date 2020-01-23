@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Container, Button, Jumbotron, Table} from 'react-bootstrap';
 
-
+var i =0;
 var scoray = [];
 class Scores extends Component {
    constructor(props) {
@@ -32,7 +32,7 @@ class Scores extends Component {
           
         }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));    
       };
-
+      i =0;
       
     render(){  
       
@@ -54,7 +54,7 @@ class Scores extends Component {
             <tbody>
               {this.state.graphdata.nodes.map(el=> (
                 <tr>
-                  <td>{el.id}</td>
+                  <td>{++i}</td>
                   <td>{el.test}</td>
                   <td>{el.today}/{el.qtime}</td>
                   <td>{el.size}</td>
