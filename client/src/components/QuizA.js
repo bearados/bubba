@@ -86,15 +86,41 @@ class QuizA extends Component {
         return(
             
            <Jumbotron>
-               {this.state.probList.map(co=>(
+               
                <Form>
-                <Row className="justify-content-md-center">{co}<Col sm={true}><Form.Control size="sm" type="number" name = {i++} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>                
+                <Row className="justify-content-md-center">
+                    {this.state.probList[0]}<Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[1]}<Col sm={true}><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[2]}<Col sm={true}><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>
                 <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[3]}<Col sm={true}><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[4]}<Col sm={true}><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[5]}<Col sm={true}><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[6]}<Col sm={true}><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[7]}<Col sm={true}><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[8]}<Col sm={true}><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[9]}<Col sm={true}><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[10]}<Col sm={true}><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[11]}<Col sm={true}><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[12]}<Col sm={true}><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[13]}<Col sm={true}><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[14]}<Col sm={true}><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
                 </Form>
-                ))}
                 <br/> 
-                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
-               </Row> 
                 <Container>{this.getMsg()}</Container>
            </Jumbotron>
         );
