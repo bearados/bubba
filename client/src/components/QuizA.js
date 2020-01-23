@@ -87,7 +87,8 @@ class QuizA extends Component {
             
            <Jumbotron>
                {this.state.probList.map(co=>(<Form>
-                <Row className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>
+                <Row className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                <Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>
                    <br/>   
                 </Form>
                 ))} <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
