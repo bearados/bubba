@@ -30,13 +30,10 @@ class Scores extends Component {
           },
           body: JSON.stringify(this.state)
           
-        }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));    
+        }).then(response=>response.json()).then(data=>this.setState({graphdata: data}));
+        console.dir(this.state.graphdata);    
       };
-      i =0;
-      
     render(){  
-      
-   
     return (
        <div>
          <h1>View Your Past Scores</h1>
@@ -53,6 +50,7 @@ class Scores extends Component {
             </tr>
           </thead>
             <tbody>
+              
               {this.state.graphdata.map(el=> (
                 <tr>
                   <td>{el.id}</td>
