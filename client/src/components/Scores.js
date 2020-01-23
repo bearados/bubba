@@ -8,10 +8,7 @@ class Scores extends Component {
       super(props);
       this.state ={
           ID: "1",
-          graphdata: {
-            nodes: [{ id: "1" }, { id: "2" }],
-            links: [{ source: "1", target: "2" }],
-          }
+          graphdata: {"id": 1, "test":"addition", "today": 7/5/2019, "qtime": "3:33", "score": 15}
           
       };
     }
@@ -51,7 +48,7 @@ class Scores extends Component {
           </thead>
             <tbody>
               
-              {this.state.graphdata.rs.map(el=> (
+              {this.state.graphdata.map(el=> (
                 <tr>
                   <td>{el.id}</td>
                   <td>{el.test}</td>
