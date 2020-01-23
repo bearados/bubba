@@ -69,11 +69,11 @@ class QuizA extends Component {
         if(this.state.showScore){
             
             if(this.state.score < 15){
-                return (<Container><h5>You need more practice!</h5>
+                return (<Container><Row><h3>Your Score is {this.state.score}/20!</h3></Row><Row><h5>You need more practice!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
             else{
-                return(<Container><h5>Great Job!</h5>
+                return(<Container><Row><h3>Your Score is {this.state.score}/20!</h3></Row><Row><h5>Great Job!</h5></Row>
                 <PostScore score={this.state.score} test="addition"></PostScore></Container>);
             }
         }
@@ -86,25 +86,12 @@ class QuizA extends Component {
         return(
             
            <Jumbotron>
-               
-                   
-                       
-                                      
-                   
-              
                {this.state.probList.map(co=>(<Form>
                 <Row className="justify-content-md-center"><Col>{++i}. {co} </Col><Col><Form.Control size="sm" type="number" name = {i} onChange={this.handleChange.bind(this)} placeholder="0" /></Col></Row>
                    <br/>   
-                
-               
                 </Form>
-                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
+                ))} <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
                </Row> 
-                ))}
-                {!this.state.showScore?
-                <p>click the button to submit answers</p>
-                :
-                <h3>Your Score is {this.state.score}/20!</h3>}
                 <Container>{this.getMsg()}</Container>
            </Jumbotron>
         );
