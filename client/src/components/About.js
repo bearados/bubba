@@ -6,7 +6,7 @@ const About = () => {
        <div>
         <Jumbotron>
           <h1>About BubbaTest</h1>
-          <p>This is a simple React/Node web-app made to help kids improve their math skills. The graph on the Scores page was built using react-d3-graph and Heroku Postgres.</p>
+          <p>BubbaTest is a site for practicing math problems. This app was built using Heroku Postgres, React, and Node.</p>
           
           <ListGroup variant="flush"><Row><Col>Project Links:</Col><Col>Other Projects by Jessica Adams:</Col></Row> 
           <Row>

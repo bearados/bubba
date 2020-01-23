@@ -17,14 +17,11 @@ function problemGener(){
     for(j= 0; j< 20; j++){
     var an = random();
     var bn = random();
-    a.push(an);
-    b.push(bn);
-    
+    a.push(<container>{an} + {bn} = </container>);
     var sum = an + bn;
     sums.push(sum);
     }
     probs.push(a);
-    probs.push(b);
     probs.push(sums);
     return probs;
 }
@@ -93,45 +90,46 @@ class QuizA extends Component {
                <Container>
                {!this.state.showScore?
                <Form>
+                   {this.state.probList.map}
                 <Row className="justify-content-md-center"> 
                     <Col>
-               1. {this.state.probList[0][0]} + {this.state.probList[1][0]} =</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+               1. {this.state.probList[0][0]}</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                
                <Col>
-               2. {this.state.probList[0][1]} + {this.state.probList[1][1]} = </Col><Col> <Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" />
+               2. {this.state.probList[0][1]}</Col><Col><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>
                <Col>
-               3. {this.state.probList[0][2]} + {this.state.probList[1][2]} =  </Col><Col><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" />
+               3. {this.state.probList[0][2]}</Col><Col><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>
                </Row><br/>
                <Row>
                    <Col>
-               4. {this.state.probList[0][3]} + {this.state.probList[1][3]} =  </Col><Col><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0"/>
-               </Col><Col>5. {this.state.probList[0][4]} + {this.state.probList[1][4]} =  </Col><Col><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>6. {this.state.probList[0][5]} + {this.state.probList[1][5]} =  </Col><Col><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" />
+               4. {this.state.probList[0][3]}</Col><Col><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0"/>
+               </Col><Col>5. {this.state.probList[0][4]}</Col><Col><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>6. {this.state.probList[0][5]}</Col><Col><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col></Row><br/>
                <Row >
-               <Col>7. {this.state.probList[0][6]} + {this.state.probList[1][6]} = </Col><Col><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" />
-              </Col><Col> 8. {this.state.probList[0][7]} + {this.state.probList[1][7]} =  </Col><Col><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>9. {this.state.probList[0][8]} + {this.state.probList[1][8]} = </Col><Col><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>7. {this.state.probList[0][6]}</Col><Col><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" />
+              </Col><Col> 8. {this.state.probList[0][7]}</Col><Col><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>9. {this.state.probList[0][8]}</Col><Col><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col></Row><br/><Row >
-               <Col>10. {this.state.probList[0][9]} + {this.state.probList[1][9]} =  </Col><Col><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>11. {this.state.probList[0][10]} + {this.state.probList[1][10]} =  </Col><Col><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>12. {this.state.probList[0][11]} + {this.state.probList[1][11]} =  </Col><Col><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>10. {this.state.probList[0][9]}</Col><Col><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>11. {this.state.probList[0][10]}</Col><Col><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>12. {this.state.probList[0][11]}</Col><Col><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col></Row><br/><Row >
-               <Col>13. {this.state.probList[0][12]} + {this.state.probList[1][12]} =  </Col><Col><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>14. {this.state.probList[0][13]} + {this.state.probList[1][13]} =  </Col><Col><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>15. {this.state.probList[0][14]} + {this.state.probList[1][14]} =  </Col><Col><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>13. {this.state.probList[0][12]}</Col><Col><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>14. {this.state.probList[0][13]}</Col><Col><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>15. {this.state.probList[0][14]}</Col><Col><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>
                </Row><br/>
                <Row >
-               <Col>16. {this.state.probList[0][15]} + {this.state.probList[1][15]} =  </Col><Col><Form.Control size="sm" type="number" name = {15} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>17. {this.state.probList[0][16]} + {this.state.probList[1][16]} =  </Col><Col><Form.Control size="sm" type="number" name = {16} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>18. {this.state.probList[0][17]} + {this.state.probList[1][17]} =  </Col><Col><Form.Control size="sm" type="number" name = {17} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>16. {this.state.probList[0][15]}</Col><Col><Form.Control size="sm" type="number" name = {15} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>17. {this.state.probList[0][16]}</Col><Col><Form.Control size="sm" type="number" name = {16} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>18. {this.state.probList[0][17]}</Col><Col><Form.Control size="sm" type="number" name = {17} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>
                </Row><br/><Row>
-               <Col>19. {this.state.probList[0][18]} + {this.state.probList[1][18]} =  </Col><Col><Form.Control size="sm" type="number" name = {18} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>20. {this.state.probList[0][19]} + {this.state.probList[1][19]} =  </Col><Col><Form.Control size="sm" type="number" name = {19} onChange={this.handleChange.bind(this)} placeholder="0" />
+               <Col>19. {this.state.probList[0][18]}</Col><Col><Form.Control size="sm" type="number" name = {18} onChange={this.handleChange.bind(this)} placeholder="0" />
+               </Col><Col>20. {this.state.probList[0][19]}</Col><Col><Form.Control size="sm" type="number" name = {19} onChange={this.handleChange.bind(this)} placeholder="0" />
                </Col>   
                </Row>
                <br/>
