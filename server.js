@@ -56,7 +56,7 @@ function getScores(id, callback){
   client.connect();
   var context = [];
   var timeF = 'HH:MI';
-  var dateF = 'DD/MM/YYYY';
+  var dateF = 'MM/DD/YYYY';
   context.rs =[];
   var Values = [timeF, dateF, id];
   var queryst = 'Select "id", "test", "score", to_char("qtime", $1) as "time", to_char("today", $2) as "date" from user_scores where "userid" = $3';
