@@ -57,7 +57,7 @@ function getScores(id, callback){
   var context = [];
   context.rs =[];
   var Values = [id];
-  var queryst = 'Select "id", "score", to_char("qtime", "HH:MI") as "time", to_char("today", "DD/MM/YYYY") as "date" from user_scores where "userid" = 1';
+  var queryst = 'Select "id", "score", to_char("qtime", "HH:MI") as "time", to_char("today", "DD/MM/YYYY") as "date" from user_scores where "userid" = $1';
   client.query(queryst, Values, (err, res) => {
     if (err) throw err;
     client.end();
