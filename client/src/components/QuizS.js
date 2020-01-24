@@ -4,35 +4,30 @@ import PostScore from './PostScore'
 var ans = [0];
 var difs = [];
 var a =[];
-var b=[];
-var probs = [];
 function random(){
      return Math.floor(Math.random() * 100);
 }
 
 function problemGener(){
     var j = 0;
-    for(j= 0; j< 20; j++){
+    for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
     while(bn > an){
         bn = random();
     }
-    a.push(an);
-    b.push(bn);
+    a.push(<Col>{j+1}. {an} - {bn} = </Col>);
+    
     
     var dif = an - bn;
     difs.push(dif);
     }
-    probs.push(a);
-    probs.push(b);
-    probs.push(difs);
-    return probs;
+    return a;
 }
 
 function arrayFill(){
     var jay = 0;
-    for(jay = 0; jay < 20; jay++){
+    for(jay = 0; jay < 15; jay++){
         ans.push(0);
     }
     return ans;
@@ -43,11 +38,11 @@ function addAns(curAns, AnsArray, pos){
     return AnsArray;
 }
 
-function calcScore(AnsArry, difArry){
+function calcScore(AnsArry){
     var kay = 0;
     var sco = 0;
-    for(kay = 0; kay < 20; kay++){
-        if(AnsArry[kay] == difArry[2][kay]){
+    for(kay = 0; kay < 15; kay++){
+        if(AnsArry[kay] == difs[kay]){
             sco++;
         }
     }
@@ -76,12 +71,12 @@ class QuizS extends Component {
 
     getMsg(){
         if(this.state.showScore){
-            if(this.state.score < 15){
-                return (<Container><h5>You need more practice!</h5>
-                </Container>);
+            if(this.state.score < 10){
+                return (<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row className="justify-content-md-center"><h5>You need more practice!</h5></Row>
+                <PostScore score={this.state.score} test="subtraction"></PostScore></Container>);
             }
             else{
-                return(<Container><h5>Great Job!</h5>
+                return(<Container><Row className="justify-content-md-center"><h3>Your Score is {this.state.score}/15!</h3></Row><Row className="justify-content-md-center"><h5>Great Job!</h5></Row>
                 <PostScore score={this.state.score} test="subtraction"></PostScore></Container>);
             }
         }
@@ -93,58 +88,40 @@ class QuizS extends Component {
         return(
         
            <Jumbotron>
-               <Container>
-               {!this.state.showScore?
                <Form>
-                <Row className="justify-content-md-center"> 
-                    <Col>
-               1. {this.state.probList[0][0]} - {this.state.probList[1][0]} =</Col><Col><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-               
-               <Col>
-               2. {this.state.probList[0][1]} - {this.state.probList[1][1]} = </Col><Col> <Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col>
-               <Col>
-               3. {this.state.probList[0][2]} - {this.state.probList[1][2]} =  </Col><Col><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col>
-               </Row><br/>
-               <Row>
-                   <Col>
-               4. {this.state.probList[0][3]} - {this.state.probList[1][3]} =  </Col><Col><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>5. {this.state.probList[0][4]} - {this.state.probList[1][4]} =  </Col><Col><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>6. {this.state.probList[0][5]} - {this.state.probList[1][5]} =  </Col><Col><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col></Row><br/>
-               <Row >
-               <Col>7. {this.state.probList[0][6]} - {this.state.probList[1][6]} = </Col><Col><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" />
-              </Col><Col> 8. {this.state.probList[0][7]} - {this.state.probList[1][7]} =  </Col><Col><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>9. {this.state.probList[0][8]} - {this.state.probList[1][8]} = </Col><Col><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col></Row><br/><Row >
-               <Col>10. {this.state.probList[0][9]} - {this.state.probList[1][9]} =  </Col><Col><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>11. {this.state.probList[0][10]} - {this.state.probList[1][10]} =  </Col><Col><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>12. {this.state.probList[0][11]} - {this.state.probList[1][11]} =  </Col><Col><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col></Row><br/><Row >
-               <Col>13. {this.state.probList[0][12]} - {this.state.probList[1][12]} =  </Col><Col><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>14. {this.state.probList[0][13]} - {this.state.probList[1][13]} =  </Col><Col><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>15. {this.state.probList[0][14]} - {this.state.probList[1][14]} =  </Col><Col><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col>
-               </Row><br/>
-               <Row >
-               <Col>16. {this.state.probList[0][15]} - {this.state.probList[1][15]} =  </Col><Col><Form.Control size="sm" type="number" name = {15} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>17. {this.state.probList[0][16]} - {this.state.probList[1][16]} =  </Col><Col><Form.Control size="sm" type="number" name = {16} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col><Col>18. {this.state.probList[0][17]} - {this.state.probList[1][17]} =  </Col><Col><Form.Control size="sm" type="number" name = {17} onChange={this.handleChange.bind(this)} placeholder="0" />
-               </Col>
-               </Row><br/><Row>
-               <Col>19. {this.state.probList[0][18]} - {this.state.probList[1][18]} =  </Col><Col><Form.Control size="sm" type="number" name = {18} onChange={this.handleChange.bind(this)} placeholder="0"/>
-               </Col><Col>20. {this.state.probList[0][19]} - {this.state.probList[1][19]} =  </Col><Col><Form.Control size="sm" type="number" name = {19} onChange={this.handleChange.bind(this)} placeholder="0"/>
-               </Col>   
-               </Row>
-               <br/>
-               <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button>
-               </Row>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[0]}<Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[1]}<Col sm={true}><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[2]}<Col sm={true}><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[3]}<Col sm={true}><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[4]}<Col sm={true}><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[5]}<Col sm={true}><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[6]}<Col sm={true}><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[7]}<Col sm={true}><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[8]}<Col sm={true}><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[9]}<Col sm={true}><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[10]}<Col sm={true}><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[11]}<Col sm={true}><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center">
+                    {this.state.probList[12]}<Col sm={true}><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[13]}<Col sm={true}><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    {this.state.probList[14]}<Col sm={true}><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                </Row>               
+                <br/>
+                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
                 </Form>
-                :
-                <h3>Your Score is {this.state.score}/20!</h3>
-                }
-                </Container>
+                <br/> 
                 <Container>{this.getMsg()}</Container>
            </Jumbotron>
         );
