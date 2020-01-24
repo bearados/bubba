@@ -51,8 +51,8 @@ class Scores extends Component {
                 <tr>
                   <td>{el.id}</td>
                   <td>{el.test}</td>
-                  <td>{el.to_char}</td>
-                  <td>{el.qtime}</td>
+                  <td>{el.date}</td>
+                  <td>{el.time}</td>
                   <td>{el.score}</td>
                 </tr>
               ))}
