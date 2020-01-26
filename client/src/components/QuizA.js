@@ -101,7 +101,7 @@ class QuizA extends Component {
     getScore(event){
         this.setState({
             showScore: true,
-            score: calcScore(this.state.Answer, this.state.probList), 
+            score: calcScore(this.state.Answer, this.state.probList) 
             /*resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)*/
         });
     }
@@ -123,7 +123,7 @@ class QuizA extends Component {
         }
     }
 
-    /*newQuiz(){
+    newQuiz(event){
         this.setState({
             Answer: arrayFill(1),
         probList : problemGener(1),
@@ -131,7 +131,7 @@ class QuizA extends Component {
         showScore: false,
         resultlist: clearRes(this.state.resultlist)
         })
-    }*/
+    }
     
     render(){
         return(
@@ -176,7 +176,7 @@ class QuizA extends Component {
                     {this.state.resultlist.map(p2=> (
                         <Container>{p2}<br/></Container>))}
                     <Container>{this.getMsg()}</Container>
-                    <Button type="button"  variant="info">Take Another Addition Quiz</Button>
+                    <Button type="button" onClick={this.newQuiz.bind(this)}  variant="info">Take Another Addition Quiz</Button>
                 </container>
                }
            </Jumbotron>
