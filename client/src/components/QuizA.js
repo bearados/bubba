@@ -163,9 +163,9 @@ class QuizA extends Component {
                 <Row className="justify-content-md-center"><Button type="submit" onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
                 </Form>:
                 <container>
-                    <h4>Results</h4>
+                    <Container>{this.getMsg()}</Container>
                     <br/>
-                    <Table hover style={{ backgroundColor :"white"}}>
+                    <Table size="sm" hover style={{ backgroundColor :"white"}}>
                     <thead>
                         <tr>
                             <th>Problem</th>
@@ -178,7 +178,7 @@ class QuizA extends Component {
                         
                     </tbody>
                     </Table>
-                    <Container>{this.getMsg()}</Container>
+                    
                     <Button type="button" onClick={this.newQuiz.bind(this)}  variant="info">Take Another Addition Quiz</Button>
                 </container>
                }
