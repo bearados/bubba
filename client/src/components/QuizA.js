@@ -72,11 +72,11 @@ function returnRes(AnsArray, ResArray, plist){
     for(oki = 0; oki < 15; oki++){
         if(AnsArray[oki] == sums[oki]){
         ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col>{AnsArray[oki]}</Col><Col>Correct!</Col></Row>);
+        <Col  md="auto">{AnsArray[oki]}</Col><Col  md="auto">Correct!</Col></Row>);
         }
         else{
             ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col>{AnsArray[oki]}</Col><Col>Incorrect :(</Col></Row>);
+        <Col  md="auto">{AnsArray[oki]}</Col><Col  md="auto">Incorrect :(</Col></Row>);
         }
     }
     return ResArray;
