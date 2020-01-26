@@ -72,13 +72,13 @@ function returnRes(AnsArray, ResArray, plist){
     for(oki = 0; oki < 15; oki++){
         if(AnsArray[oki] == sums[oki]){
         ResArray[oki].push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col><Form.Control isvalid disabled size="sm" type="number" placeholder={AnsArray[oki]}></Form.Control ></Col></Row>);
+        <Col><Form><Form.Control size="sm" type="number" >{AnsArray[oki]}</Form.Control ></Form></Col></Row>);
         }
         else{
             ResArray[oki].push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col><Form.Control isvalid="false" disabled size="sm" type="number" placeholder={AnsArray[oki]}></Form.Control >
+        <Col><Form><Form.Control size="sm" type="number" >{AnsArray[oki]}</Form.Control >
         <Form.Control.Feedback>You answered this problem incorrectly. The correct answer is {sums[oki]}</Form.Control.Feedback>
-        </Col></Row>);
+        </Form></Col></Row>);
         }
     }
     return ResArray;
@@ -101,8 +101,8 @@ class QuizA extends Component {
     getScore(event){
         this.setState({
             showScore: true,
-            score: calcScore(this.state.Answer, this.state.probList) 
-            /*resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)*/
+            score: calcScore(this.state.Answer, this.state.probList), 
+            resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)
         });
     }
     
