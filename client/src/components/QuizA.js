@@ -72,11 +72,11 @@ function returnRes(AnsArray, ResArray, plist){
     for(oki = 0; oki < 15; oki++){
         if(AnsArray[oki] == sums[oki]){
         ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col>{AnsArray[oki]}</Col></Row>);
+        <Col><Form.Control disabled isValid>{AnsArray[oki]}</Form.Control></Col></Row>);
         }
         else{
             ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col>{AnsArray[oki]}</Col></Row>);
+        <Col><Form.Control disabled inValid>{AnsArray[oki]}</Form.Control></Col></Row>);
         }
     }
     return ResArray;
