@@ -81,7 +81,7 @@ function returnRes(AnsArray, ResArray, plist){
         </Col></Row>);
         }
     }
-
+    return ResArray;
 }
 
 class QuizA extends Component {
