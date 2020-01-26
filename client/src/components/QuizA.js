@@ -176,7 +176,7 @@ class QuizA extends Component {
                     {this.state.resultlist.map(p2=> (
                         <Container>{p2}<br/></Container>))}
                     <Container>{this.getMsg()}</Container>
-                    <Button type="reset" onClick={this.newQuiz.bind(this)} variant="info">Take Another Addition Quiz</Button>
+                    <Button type="reset"  variant="info">Take Another Addition Quiz</Button>
                 </container>
                }
            </Jumbotron>
