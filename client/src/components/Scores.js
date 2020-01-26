@@ -34,8 +34,8 @@ class Scores extends Component {
        <div>
          <h1>View Your Past Scores</h1>
          
-          <div>
-          <Table striped bordered hover style={{ backgroundColor :"white", width: 1000}}>
+          <Row className="justify-content-md-center">
+          <Table striped bordered hover style={{width: 1000}}>
           <thead>
             <tr>
               <th>#</th>
@@ -58,8 +58,9 @@ class Scores extends Component {
               ))}
             </tbody>
           </Table>
+          </Row>
           </div>
-       </div>
+       
     );
     }
 }
