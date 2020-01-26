@@ -102,7 +102,7 @@ class QuizA extends Component {
         this.setState({
             showScore: true,
             score: calcScore(this.state.Answer, this.state.probList), 
-            resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)
+            /*resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)*/
         });
     }
     
