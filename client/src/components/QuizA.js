@@ -66,10 +66,10 @@ function returnRes(AnsArray, ResArray, plist){
     var oki = 0;
     for(oki = 0; oki < 15; oki++){
         if(AnsArray[oki] == sums[oki]){
-            ResArray.push(<tr style={{ backgroundColor :"aquamarine"}}><td>{plist[oki]}</td><td>{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
+            ResArray.push(<tr><td>{plist[oki]}</td><td style={{ backgroundColor :"mediumaquamarine"}} >{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
         }
         else{
-            ResArray.push(<tr style={{ backgroundColor :"lightcoral"}}><td>{plist[oki]}</td><td>{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
+            ResArray.push(<tr ><td>{plist[oki]}</td><td style={{ backgroundColor :"salmon"}}>{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
         }
     }
     return ResArray;
