@@ -12,8 +12,13 @@ function random(){
      return Math.floor(Math.random() * 100);
 }
 
-function problemGener(){
+function problemGener(num){
     var j = 0;
+    if(num == 1){
+        for(j = 0; j<15; j++){
+            sums.pop();
+        }
+    }
     for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
@@ -23,8 +28,13 @@ function problemGener(){
     }
     return a;
 }
-function arrayFill(){
+function arrayFill(num){
     var jay = 0;
+    if(num == 1){
+        for(jay = 0; jay < 15; jay++){
+        ans.pop();
+        }
+    }
     for(jay = 0; jay < 15; jay++){
         ans.push(0);
     }
@@ -36,9 +46,19 @@ function addAns(curAns, AnsArray, pos){
     return AnsArray;
 }
 
+function clearRes(resArr){
+    var i = 0;
+    var empty = [];
+    for(i = 0; i < 15; i++){
+        resArr.pop();
+    }
+    return empty;
+}
+
 function calcScore(AnsArry){
     var kay = 0;
     var sco = 0;
+    
     for(kay = 0; kay < 15; kay++){
         if(AnsArry[kay] == sums[kay]){
             sco++;
@@ -47,21 +67,42 @@ function calcScore(AnsArry){
     return sco;
 }
 
+function returnRes(AnsArray, ResArray, plist){
+    var oki = 0;
+    for(oki = 0; oki < 15; oki++){
+        if(AnsArray[oki] == sums[oki]){
+        ResArray[oki].push(<Row className="justify-content-md-center">{plist[oki]}
+        <Col><Form.Control isvalid disabled size="sm" type="number" placeholder={AnsArray[oki]}></Form.Control ></Col></Row>);
+        }
+        else{
+            ResArray[oki].push(<Row className="justify-content-md-center">{plist[oki]}
+        <Col><Form.Control isvalid="false" disabled size="sm" type="number" placeholder={AnsArray[oki]}></Form.Control >
+        <Form.Control.Feedback>You answered this problem incorrectly. The correct answer is {sums[oki]}</Form.Control.Feedback>
+        </Col></Row>);
+        }
+    }
+
+}
+
 class QuizA extends Component {
     constructor(props) {
         super(props);
-        this.state = { Answer: arrayFill(),
-        probList : problemGener(),
+        this.state = { Answer: arrayFill(0),
+        probList : problemGener(0),
         score: 0,
-        showScore: false};
-      }
-      
+        showScore: false,
+        resultlist: []
+    };
+    }
+    
     handleChange(event) {
         this.setState({Answer: addAns(event.target.value, this.state.Answer, event.target.name)});
     } 
     getScore(event){
-        this.setState({showScore: true,
-            score: calcScore(this.state.Answer, this.state.probList)
+        this.setState({
+            showScore: true,
+            score: calcScore(this.state.Answer, this.state.probList), 
+            resultlist: returnRes(this.state.Answer, this.state.resultlist, this.state.probList)
         });
     }
     
@@ -81,15 +122,25 @@ class QuizA extends Component {
             return(<Container></Container>);
         }
     }
+
+    newQuiz(){
+        this.setState({
+            Answer: arrayFill(1),
+        probList : problemGener(1),
+        score: 0,
+        showScore: false,
+        resultlist: clearRes(this.state.resultlist)
+        })
+    }
     
     render(){
         return(
             
            <Jumbotron>
-               
-               <Form>
+               {!this.state.showScore?
+               <Form >
                 <Row className="justify-content-md-center">
-                    {this.state.probList[0]}<Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} variant="danger" placeholder="0" /></Col>
+                    {this.state.probList[0]}<Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                     {this.state.probList[1]}<Col sm={true}><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                     {this.state.probList[2]}<Col sm={true}><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>
@@ -118,10 +169,16 @@ class QuizA extends Component {
                     {this.state.probList[14]}<Col sm={true}><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>               
                 <br/>
-                <Row className="justify-content-md-center"><Button onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
-                </Form>
-                <br/> 
-                <Container>{this.getMsg()}</Container>
+                <Row className="justify-content-md-center"><Button type="submit" onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
+                </Form>:
+                <container>
+                    <br/>
+                    {this.state.resultlist.map(p2=> (
+                        <Container>{p2}<br/></Container>))}
+                    <Container>{this.getMsg()}</Container>
+                    <Button type="reset" onClick={this.newQuiz.bind(this)} variant="info">Take Another Addition Quiz</Button>
+                </container>
+               }
            </Jumbotron>
         );
     }
