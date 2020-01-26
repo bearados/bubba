@@ -35,7 +35,7 @@ class Scores extends Component {
          <h1>View Your Past Scores</h1>
          
           <div>
-          <Table striped bordered hover>
+          <Table striped bordered hover style={{ backgroundColor :"white", width: 1000}}>
           <thead>
             <tr>
               <th>#</th>
