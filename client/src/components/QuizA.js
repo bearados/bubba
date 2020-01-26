@@ -167,7 +167,7 @@ class QuizA extends Component {
                     <Container>{this.getMsg()}</Container>
                     <br/>
                     <Row className="justify-content-md-center">
-                    <Table hover style={{ backgroundColor :"white", width: 1200}}>
+                    <Table hover style={{ backgroundColor :"white", width: 800}}>
                     <thead>
                         <tr>
                             <th>Problem</th>
