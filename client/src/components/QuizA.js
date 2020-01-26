@@ -171,8 +171,7 @@ class QuizA extends Component {
                 </Form>:
                 <container>
                     <br/>
-                    {this.state.resultlist.map(p2=> (
-                        <Container>{p2}<br/></Container>))}
+                    {this.state.resultlist.map(p2=> (p2))}
                     <Container>{this.getMsg()}</Container>
                     <Button type="button" onClick={this.newQuiz.bind(this)}  variant="info">Take Another Addition Quiz</Button>
                 </container>
