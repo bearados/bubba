@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import { Button, Row, Col, Container, Form, Jumbotron } from 'react-bootstrap';
+import { Button, Row, Col, Container, Form, Jumbotron, Table } from 'react-bootstrap';
 
 import PostScore from './PostScore'
 var i = 0;
 var ans = [0];
-var sums = [];
+var sums = [15];
 var a =[];
 
 var probs = [];
@@ -12,19 +12,14 @@ function random(){
      return Math.floor(Math.random() * 100);
 }
 
-function problemGener(num){
+function problemGener(){
     var j = 0;
-    if(num == 1){
-        for(j = 0; j<15; j++){
-            sums.pop();
-        }
-    }
     for(j= 0; j< 15; j++){
-    var an = random();
-    var bn = random();
-    a.push(<Col  md="auto">{j+1}. {an} + {bn} = </Col>);
-    var sum = an + bn;
-    sums.push(sum);
+        var an = random();
+        var bn = random();
+        a.push(<Container  md="auto">{j+1}. {an} + {bn} = </Container>);
+        var sum = an + bn;
+        sums[j] = sum;
     }
     return a;
 }
@@ -71,12 +66,10 @@ function returnRes(AnsArray, ResArray, plist){
     var oki = 0;
     for(oki = 0; oki < 15; oki++){
         if(AnsArray[oki] == sums[oki]){
-        ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col  md="auto">{AnsArray[oki]}</Col><Col  md="auto">Correct!</Col></Row>);
+            ResArray.push(<tr style={ background ="green"}><td>{plist[oki]}</td><td>{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
         }
         else{
-            ResArray.push(<Row className="justify-content-md-center">{plist[oki]}
-        <Col  md="auto">{AnsArray[oki]}</Col><Col  md="auto">Incorrect :(</Col></Row>);
+            ResArray.push(<tr style={ background ="red"}><td>{plist[oki]}</td><td>{AnsArray[oki]}</td><td>{sums[oki]}</td></tr>);
         }
     }
     return ResArray;
@@ -86,7 +79,7 @@ class QuizA extends Component {
     constructor(props) {
         super(props);
         this.state = { Answer: arrayFill(0),
-        probList : problemGener(0),
+        probList : problemGener(),
         score: 0,
         showScore: false,
         resultlist: []
@@ -124,10 +117,10 @@ class QuizA extends Component {
     newQuiz(event){
         this.setState({
             Answer: arrayFill(1),
-        probList : problemGener(1),
-        score: 0,
-        showScore: false,
-        resultlist: clearRes(this.state.resultlist)
+            probList : problemGener(),
+            score: 0,
+            showScore: false,
+            resultlist: clearRes(this.state.resultlist)
         })
     }
     
@@ -138,40 +131,52 @@ class QuizA extends Component {
                {!this.state.showScore?
                <Form >
                 <Row className="justify-content-md-center">
-                    {this.state.probList[0]}<Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[1]}<Col sm={true}><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[2]}<Col sm={true}><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[0]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {0} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[1]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {1} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[2]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {2} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>
                 <br/>
                 <Row className="justify-content-md-center">
-                    {this.state.probList[3]}<Col sm={true}><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[4]}<Col sm={true}><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[5]}<Col sm={true}><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[3]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {3} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[4]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {4} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[5]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {5} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>               
                 <br/>
                 <Row className="justify-content-md-center">
-                    {this.state.probList[6]}<Col sm={true}><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[7]}<Col sm={true}><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[8]}<Col sm={true}><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[6]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {6} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[7]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {7} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[8]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {8} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>               
                 <br/>
                 <Row className="justify-content-md-center">
-                    {this.state.probList[9]}<Col sm={true}><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[10]}<Col sm={true}><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[11]}<Col sm={true}><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[9]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {9} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[10]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {10} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[11]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {11} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>               
                 <br/>
                 <Row className="justify-content-md-center">
-                    {this.state.probList[12]}<Col sm={true}><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[13]}<Col sm={true}><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
-                    {this.state.probList[14]}<Col sm={true}><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[12]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {12} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[13]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {13} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
+                    <Col>{this.state.probList[14]}</Col><Col sm={true}><Form.Control size="sm" type="number" name = {14} onChange={this.handleChange.bind(this)} placeholder="0" /></Col>
                 </Row>               
                 <br/>
                 <Row className="justify-content-md-center"><Button type="submit" onClick= {this.getScore.bind(this)} variant="primary">Submit Answers</Button></Row>
                 </Form>:
                 <container>
                     <br/>
-                    {this.state.resultlist.map(p2=> (p2))}
+                    <Table>
+                    <thead>
+                        <tr>
+                            <th>Problem</th>
+                            <th>Your Answer</th>
+                            <th>Correct Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.resultlist.map(p2=> (p2))}
+                        
+                    </tbody>
+                    </Table>
                     <Container>{this.getMsg()}</Container>
                     <Button type="button" onClick={this.newQuiz.bind(this)}  variant="info">Take Another Addition Quiz</Button>
                 </container>
