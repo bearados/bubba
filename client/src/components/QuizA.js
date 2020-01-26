@@ -22,7 +22,7 @@ function problemGener(num){
     for(j= 0; j< 15; j++){
     var an = random();
     var bn = random();
-    a.push(<Col>{j+1}. {an} + {bn} = </Col>);
+    a.push(<Col  md="auto">{j+1}. {an} + {bn} = </Col>);
     var sum = an + bn;
     sums.push(sum);
     }
