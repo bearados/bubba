@@ -8,10 +8,8 @@ const About = () => {
           <h1>About BubbaTest</h1>
           <p>BubbaTest is a site for practicing math problems. This app was built using Heroku Postgres, React, and Node.</p>
           
-          <Row><Col>Project Links:</Col><Col>Other Projects by Jessica Adams:</Col></Row> 
-          <Row>
-          <a href="https://github.com/bearados/bubba">View this project on github</a>  
-          </Row>
+          <Row><Col>Project Links:</Col></Row> 
+          <Row><Col><a href="https://github.com/bearados/bubba">View this project on github</a></Col></Row>
             
             <br/>
             <p>Author: Jessica Adams <br/>
