@@ -9,7 +9,6 @@ const Navigation = () => {
         <Navbar.Brand href="/">BubbaTest</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/scores">Scores</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
         <Button variant="info">Sign in</Button>
