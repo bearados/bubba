@@ -26,15 +26,16 @@ const Navigation = () => {
           <Modal.Title>Register/Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          Enter you Login Information below to Login.
+          Enter you Login Information below to Login.<br/>
           <label for="loginid">Login ID:</label>
           <input type="text" id="loginid"/>
+          <label for="password">Password:</label>
+          <input type="text" id="password"/>
+          <a href="/">Register</a>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
+          <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+          <Button variant="primary">Submit</Button>
         </Modal.Footer>
       </Modal>
         </Navbar>
