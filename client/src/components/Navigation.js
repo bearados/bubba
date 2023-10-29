@@ -27,10 +27,18 @@ const Navigation = () => {
         </Modal.Header>
         <Modal.Body>
           Enter you Login Information below to Login.<br/>
-          <label for="loginid">Login ID:</label><br/>
-          <input type="text" id="loginid"/><br/>
-          <label for="password">Password:</label><br/>
-          <input type="text" id="password"/><br/>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control type="email" placeholder="name@example.com" />
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+            <Form.Label column sm="2">Password</Form.Label>
+            <Col sm="10">
+              <Form.Control type="password" placeholder="Password" />
+            </Col>
+            </Form.Group>
+            </Form>
           <a href="/">Register</a>
         </Modal.Body>
         <Modal.Footer>
