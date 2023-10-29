@@ -14,7 +14,7 @@ const Navigation = () => {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/about">About</Nav.Link>
         </Nav>
-        <Button onClick={handleShow} variant="info">Log in</Button>
+        <Button onClick={handleShow} variant="info">Register/Log in</Button>
         <Modal
         show={show}
         onHide={handleClose}
@@ -23,9 +23,9 @@ const Navigation = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title>Register/Sign In</Modal.Title>
+          Enter you Login Information below to Login.<br/>
         </Modal.Header>
         <Modal.Body>
-          Enter you Login Information below to Login.<br/>
           <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
@@ -37,7 +37,7 @@ const Navigation = () => {
                 <Form.Control type="password" placeholder="Password" />
               </Col>
             </Form.Group>
-            </Form>
+          </Form>
           <a href="/registration">Register</a>
         </Modal.Body>
         <Modal.Footer>
