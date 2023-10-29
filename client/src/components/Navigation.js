@@ -4,7 +4,6 @@ import { Navbar, Nav, Button, Modal, Form } from 'react-bootstrap';
 
 const Navigation = () => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
     return (
