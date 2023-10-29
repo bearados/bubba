@@ -27,10 +27,10 @@ const Navigation = () => {
         </Modal.Header>
         <Modal.Body>
           Enter you Login Information below to Login.<br/>
-          <label for="loginid">Login ID:</label>
-          <input type="text" id="loginid"/>
-          <label for="password">Password:</label>
-          <input type="text" id="password"/>
+          <label for="loginid">Login ID:</label><br/>
+          <input type="text" id="loginid"/><br/>
+          <label for="password">Password:</label><br/>
+          <input type="text" id="password"/><br/>
           <a href="/">Register</a>
         </Modal.Body>
         <Modal.Footer>
