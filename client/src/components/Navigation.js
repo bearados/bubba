@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Navbar, Nav, Button, Modal, Form } from 'react-bootstrap';
+import { Navbar, Nav, Button, Modal, Form, Row, Col } from 'react-bootstrap';
 
 const Navigation = () => {
   const [show, setShow] = useState(false);
