@@ -23,11 +23,12 @@ const Navigation = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Register/Sign In</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          I will not close if you click outside me. Don not even try to press
-          escape key.
+          Enter you Login Information below to Login.
+          <label for="loginid">Login ID:</label>
+          <input type="text" id="loginid"/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
