@@ -38,11 +38,6 @@ const Registration = () => {
                 </Form.Group>
             </Row>
             
-            
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                
-            </Form.Group>
-            
             <button type="submit" class="btn btn-primary">Submit</button>
         </Form>
        </div>
