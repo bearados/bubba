@@ -1,8 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { Navbar, Nav, Button, Modal } from 'react-bootstrap';
-import ModalContent from './ModalContent.js';
 
 const Navigation = () => {
   const [show, setShow] = useState(false);
