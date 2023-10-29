@@ -7,16 +7,26 @@ const Registration = () => {
         <Form>
             <h1>Register</h1><br/>
             
-            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-              <Col sm="10">
-                <Form.Label column for="firstname">First Name</Form.Label>
-                <Form.Control type="text" id="firstname" placeholder="First Name" />
-              </Col>
-              <Col sm="10">
-                <Form.Label column for="lastname">Last Name</Form.Label>
-                <Form.Control type="text" id="lastname" placeholder="Last Name" />
-              </Col>
-            </Form.Group>
+            <Form.Group as={Col} md="4" controlId="validationCustom01">
+          <Form.Label>First name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="First name"
+            defaultValue="Mark"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group as={Col} md="4" controlId="validationCustom02">
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            placeholder="Last name"
+            defaultValue="Otto"
+          />
+          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+        </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
               <Form.Control type="email" placeholder="name@example.com" />
