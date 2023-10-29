@@ -38,7 +38,7 @@ const Navigation = () => {
             </Col>
             </Form.Group>
             </Form>
-          <a href="/">Register</a>
+          <a href="/registration">Register</a>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>Cancel</Button>

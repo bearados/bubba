@@ -6,6 +6,7 @@ import Scores from './components/Scores';
 import Error from './components/Error';
 import Navigation from './components/Navigation';
 import './App.css';
+import Registration from './components/Registration';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
           <Navigation />
             <Switch>
              <Route path="/" component={Home} exact/>
-             <Route path="/scores" component={Scores}/>
              <Route path="/about" component={About}/>
+             <Route path="/registration" component={Registration}/>
             <Route component={Error}/>
            </Switch>
         </div> 
