@@ -32,10 +32,26 @@ const Navigation = () => {
               <Form.Control type="email" placeholder="name@example.com" />
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-            <Form.Label column sm="2">Password</Form.Label>
-            <Col sm="10">
-              <Form.Control type="password" placeholder="Password" />
-            </Col>
+              <Col sm="10">
+                <Form.Label column sm="2" for="firstname">First Name</Form.Label>
+                <Form.Control type="text" id="firstname" placeholder="First Name" />
+              </Col>
+              <Col sm="10">
+                <Form.Label column sm="2" for="lastname">Last Name</Form.Label>
+                <Form.Control type="text" id="lastname" placeholder="Last Name" />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+              <Form.Label column sm="2">Password</Form.Label>
+              <Col sm="10">
+                <Form.Control type="password" placeholder="Password" />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+              <Form.Label column sm="2">Re-enter Password</Form.Label>
+              <Col sm="10">
+                <Form.Control type="password" placeholder="Password" />
+              </Col>
             </Form.Group>
             </Form>
           <a href="/registration">Register</a>
