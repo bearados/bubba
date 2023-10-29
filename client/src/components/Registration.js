@@ -4,7 +4,7 @@ import { Row, Col, Form } from 'react-bootstrap';
 const Registration = () => {
     return (
        <div>
-        <Form>
+        <Form width="100%">
             <h1>Register</h1><br/>
             <Row>
                 <Form.Group as={Col} xs lg="2" controlId="validationCustom01">
@@ -19,17 +19,17 @@ const Registration = () => {
                 </Form.Group>
             </Row>
             <Row>
-                <Form.Group as={Col} controlId="exampleForm.ControlInput1">
+                <Form.Group as={Col} xs lg="2" controlId="exampleForm.ControlInput1">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="name@example.com" />
                 </Form.Group>
             </Row>
             <Row>
-                <Form.Group as={Col} controlId="formPlaintextPassword1">
+                <Form.Group as={Col} xs lg="2" controlId="formPlaintextPassword1">
                     <Form.Label for="password1" >Password</Form.Label>
                     <Form.Control id="password1" type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formPlaintextPassword2">
+                <Form.Group as={Col} xs lg="2" controlId="formPlaintextPassword2">
                     <Form.Label for="password2" >Re-enter Password</Form.Label>
                     <Form.Control id="password2" type="password" placeholder="Password" />
                 </Form.Group>
