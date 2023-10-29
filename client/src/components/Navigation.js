@@ -22,7 +22,7 @@ const Navigation = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Register/Sign In</Modal.Title>
+          <Modal.Title>Register/Sign In</Modal.Title><br/>
           Enter you Login Information below to Login.<br/>
         </Modal.Header>
         <Modal.Body>
