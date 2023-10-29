@@ -25,16 +25,13 @@ const Registration = () => {
                 </Form.Group>
             </Row>
             <Row>
-                <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                    <Form.Label for="password1" column sm="2">Password</Form.Label>
-                    <Col sm="10">
-                        
-                        <Form.Control id="password1" type="password" placeholder="Password" />
-                    </Col>
-                    <Form.Label for="password2" column sm="2">Re-enter Password</Form.Label>
-                    <Col sm="10">
-                        <Form.Control id="password2" type="password" placeholder="Password" />
-                    </Col>
+                <Form.Group as={Col} className="mb-3" controlId="formPlaintextPassword">
+                    <Form.Label for="password1" column sm="3">Password</Form.Label>
+                    <Form.Control id="password1" type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group as={Col} className="mb-3" controlId="formPlaintextPassword">
+                    <Form.Label for="password2" column sm="3">Re-enter Password</Form.Label>
+                    <Form.Control id="password2" type="password" placeholder="Password" />
                 </Form.Group>
             </Row>
             
