@@ -31,7 +31,7 @@ const Navigation = () => {
         </Modal.Header>
         <Modal.Body style={divStyle}>
         <p>Enter you Login Information below.</p>
-          <Form>
+          <Form style={divStyle}>
             <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
               <Form.Control size="sm" type="email" placeholder="name@example.com" />
