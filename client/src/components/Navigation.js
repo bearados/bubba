@@ -7,8 +7,7 @@ const Navigation = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const divStyle = {
-    color: 'blue',
-    padding: 10
+    padding: 15
   };
     return (
        <div>
@@ -25,12 +24,12 @@ const Navigation = () => {
         backdrop="static"
         keyboard={false}
         centered={true}
-        style={divStyle}
+        
       >
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title><br/>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body style={divStyle}>
         <p>Enter you Login Information below.</p>
           <Form>
             <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
