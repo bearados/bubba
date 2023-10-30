@@ -4,15 +4,15 @@ import { Row, Col, Form } from 'react-bootstrap';
 const Registration = () => {
     return (
        <div class="d-flex justify-content-center">
-        <Form width="100%">
+        <Form>
             <h1>Register</h1><br/>
             <Row>
-                <Form.Group as={Col} xs lg="2" controlId="validationCustom01">
+                <Form.Group controlId="validationCustom01">
                     <Form.Label>First name</Form.Label>
                     <Form.Control required type="text" placeholder="First name"/>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group as={Col} xs lg="2" controlId="validationCustom02">
+                <Form.Group controlId="validationCustom02">
                     <Form.Label>Last name</Form.Label>
                     <Form.Control required type="text" placeholder="Last name"/>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
