@@ -3,7 +3,7 @@ import { Row, Col, Form } from 'react-bootstrap';
 
 const Registration = () => {
     const divStyle ={
-        textalign: left
+        align: 'left'
     }
     return (
        <div class="d-flex justify-content-center" width="100%">
