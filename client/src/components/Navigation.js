@@ -28,12 +28,12 @@ const Navigation = () => {
         <p>Enter you Login Information below.</p><br/>
           <Form>
             <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label column sm="2" >Email address</Form.Label>
-              <Form.Control type="email" placeholder="name@example.com" />
+              <Form.Label>Email address</Form.Label>
+              <Form.Control size="sm" type="email" placeholder="name@example.com" />
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-              <Form.Label column sm="2">Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Label>Password</Form.Label>
+              <Form.Control size="sm" type="password" placeholder="Password" />
             </Form.Group>
           </Form>
         </Modal.Body>

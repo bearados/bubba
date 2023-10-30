@@ -3,7 +3,7 @@ import { Row, Col, Form } from 'react-bootstrap';
 
 const Registration = () => {
     return (
-       <div class="d-flex justify-content-center">
+       <div class="d-flex justify-content-center" width="100%">
         <Form>
             <h1>Register</h1><br/>
             <Row>
