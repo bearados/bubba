@@ -39,13 +39,15 @@ const Navigation = () => {
         </Modal.Body>
         <Modal.Footer>
           <Row>
-          <div class="d-flex justify-content-start">
-          <a href="/registration">Register</a>
-          </div>
-          <div class="d-flex justify-content-end">
-          <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-          <Button variant="primary">Submit</Button>
-          </div>
+            <Col>
+            <a href="/registration">Register</a>
+            </Col>
+            <Col>
+            <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+            </Col>
+            <Col>
+            <Button variant="primary">Submit</Button>
+            </Col>
           </Row>
         </Modal.Footer>
       </Modal>
