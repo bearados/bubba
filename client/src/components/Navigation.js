@@ -6,6 +6,10 @@ const Navigation = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const divStyle = {
+    color: 'blue',
+    padding: 10
+  };
     return (
        <div>
         <Navbar bg="dark" variant="dark" expand="lg">
@@ -20,12 +24,14 @@ const Navigation = () => {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        centered={true}
+        style={divStyle}
       >
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title><br/>
         </Modal.Header>
         <Modal.Body>
-        <p>Enter you Login Information below.</p><br/>
+        <p>Enter you Login Information below.</p>
           <Form>
             <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Email address</Form.Label>
