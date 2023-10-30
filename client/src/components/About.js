@@ -4,8 +4,9 @@ import { Row, Col, Jumbotron, ListGroup } from 'react-bootstrap';
 const About = () => {
     return (
        <div>
+        <h1>About BubbaTest</h1>
         <Jumbotron>
-          <h1>About BubbaTest</h1>
+          
           <p>BubbaTest is a site for practicing math problems. This app was built using Heroku Postgres, React, and Node.</p>
           
           <Row><Col>Project Links:</Col></Row> 
