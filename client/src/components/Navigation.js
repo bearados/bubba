@@ -22,25 +22,23 @@ const Navigation = () => {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Register/Sign In</Modal.Title><br/>
-          Enter you Login Information below to Login.<br/>
+          <Modal.Title>Sign In</Modal.Title><br/>
+          <p>Enter you Login Information below.</p><br/>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label>Email address</Form.Label>
+            <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label column sm="2" >Email address</Form.Label>
               <Form.Control type="email" placeholder="name@example.com" />
             </Form.Group>
             <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
               <Form.Label column sm="2">Password</Form.Label>
-              <Col sm="10">
-                <Form.Control type="password" placeholder="Password" />
-              </Col>
+              <Form.Control type="password" placeholder="Password" />
             </Form.Group>
           </Form>
-          <a href="/registration">Register</a>
         </Modal.Body>
         <Modal.Footer>
+        <a href="/registration">Register</a>
           <Button variant="secondary" onClick={handleClose}>Cancel</Button>
           <Button variant="primary">Submit</Button>
         </Modal.Footer>
