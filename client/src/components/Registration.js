@@ -2,12 +2,15 @@ import React from 'react';
 import { Row, Col, Form } from 'react-bootstrap';
 
 const Registration = () => {
+    const divStyle ={
+        textalign: left
+    }
     return (
        <div class="d-flex justify-content-center" width="100%">
         <Form>
             <h1>Register</h1><br/>
             <Row>
-                <Form.Group as={Col} controlId="validationCustom01">
+                <Form.Group style={divStyle} as={Col} controlId="validationCustom01">
                     <Form.Label htmlFor="firstname1">First name</Form.Label>
                     <Form.Control id="firstname1" required type="text" placeholder="First name"/>
                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
