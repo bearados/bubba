@@ -23,9 +23,9 @@ const Navigation = () => {
       >
         <Modal.Header closeButton>
           <Modal.Title>Sign In</Modal.Title><br/>
-          <p>Enter you Login Information below.</p><br/>
         </Modal.Header>
         <Modal.Body>
+        <p>Enter you Login Information below.</p><br/>
           <Form>
             <Form.Group as={Row} className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label column sm="2" >Email address</Form.Label>
@@ -38,9 +38,15 @@ const Navigation = () => {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-        <a href="/registration">Register</a>
+          <Row>
+          <div class="d-flex justify-content-start">
+          <a href="/registration">Register</a>
+          </div>
+          <div class="d-flex justify-content-end">
           <Button variant="secondary" onClick={handleClose}>Cancel</Button>
           <Button variant="primary">Submit</Button>
+          </div>
+          </Row>
         </Modal.Footer>
       </Modal>
         </Navbar>
